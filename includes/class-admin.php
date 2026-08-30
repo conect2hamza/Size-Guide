@@ -150,7 +150,7 @@ class Admin {
 		$input    = is_array( $input ) ? $input : array();
 		$clean    = array();
 
-		$sections                   = array( 'digital', 'print', 'tools' );
+		$sections                   = array( 'digital', 'print' );
 		$clean['default_section']   = in_array( $input['default_section'] ?? '', $sections, true )
 			? $input['default_section']
 			: $defaults['default_section'];
@@ -163,7 +163,6 @@ class Admin {
 		$dpi                  = isset( $input['default_dpi'] ) ? absint( $input['default_dpi'] ) : 0;
 		$clean['default_dpi'] = ( $dpi >= 1 && $dpi <= 2400 ) ? $dpi : $defaults['default_dpi'];
 
-		$clean['show_tools']      = empty( $input['show_tools'] ) ? 0 : 1;
 		$clean['show_sources']    = empty( $input['show_sources'] ) ? 0 : 1;
 		$clean['enable_download'] = empty( $input['enable_download'] ) ? 0 : 1;
 		$clean['load_via_rest']   = empty( $input['load_via_rest'] ) ? 0 : 1;

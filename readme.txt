@@ -33,7 +33,6 @@ visual diagram rather than two numbers.
 * Unit switching between px, mm, cm and inches, with DPI conversion
 * Copy dimensions to the clipboard in three notations
 * Download clean and guide templates as SVG or PNG, or print to PDF
-* Unit converter, DPI calculator, aspect ratio calculator and custom canvas generator
 * Responsive, keyboard accessible, and readable without JavaScript
 * Appearance settings: accent colour, light/dark/auto colour scheme, corner style and density
 
@@ -50,8 +49,8 @@ no tracking, no personal data.
 
 = How do I show only one platform? =
 
-Use `[size_guide platform="instagram"]`. You can also pass `section`, `category`, `format`, `search` and
-`title`.
+Use `[size_guide platform="instagram"]`. You can also pass `section`, `category`, `format`, `search`,
+`scheme` and `title`.
 
 = Can I add my own sizes? =
 
@@ -81,15 +80,15 @@ document's real dimensions, bleed included.
 
 1. A social media size with its infographic, specifications and templates.
 2. A print size showing bleed, trim and safe zone with conversions in every unit.
-3. The tools tab: unit converter, DPI calculator, ratio calculator and custom canvas.
-4. The admin dashboard and dataset overview.
+3. The admin dashboard and dataset overview.
+4. The settings screen, including the appearance options.
 
 == Changelog ==
 
 = 1.0.0 =
 * First release: digital and print datasets, search, infographic system, safe zone, margin, bleed, DPI,
-  unit conversion, copy dimensions, SVG and PNG templates, responsive UI, shortcode, REST API and
-  WordPress admin with JSON import/export.
+  unit conversion, copy dimensions, SVG and PNG templates, appearance settings, responsive UI,
+  shortcode, REST API and WordPress admin with JSON import/export.
 
 == Upgrade Notice ==
 

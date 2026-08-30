@@ -31,7 +31,6 @@ $sg_option   = SizeGuide\Size_Guide::SETTINGS_OPTION;
 							$sg_sections = array(
 								'digital' => __( 'Digital', 'size-guide' ),
 								'print'   => __( 'Print', 'size-guide' ),
-								'tools'   => __( 'Tools', 'size-guide' ),
 							);
 
 							foreach ( $sg_sections as $sg_key => $sg_label ) :
@@ -78,11 +77,6 @@ $sg_option   = SizeGuide\Size_Guide::SETTINGS_OPTION;
 					<td>
 						<fieldset>
 							<legend class="screen-reader-text"><?php esc_html_e( 'Frontend options', 'size-guide' ); ?></legend>
-
-							<label>
-								<input type="checkbox" name="<?php echo esc_attr( $sg_option ); ?>[show_tools]" value="1" <?php checked( $sg_settings['show_tools'], 1 ); ?>>
-								<?php esc_html_e( 'Show the Tools tab (unit converter, DPI and ratio calculators, custom canvas)', 'size-guide' ); ?>
-							</label><br>
 
 							<label>
 								<input type="checkbox" name="<?php echo esc_attr( $sg_option ); ?>[show_sources]" value="1" <?php checked( $sg_settings['show_sources'], 1 ); ?>>

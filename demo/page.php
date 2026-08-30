@@ -552,8 +552,8 @@ $sg_body = <<<'HTMLBODY'
 				<li>Search <kbd>1080x1350</kbd> &mdash; dimensions match too.</li>
 				<li>Open <kbd>Print</kbd> &rarr; <kbd>Paper Sizes</kbd> &rarr; <kbd>A4</kbd>, then switch the unit to <kbd>IN</kbd>.</li>
 				<li>Toggle <kbd>Bleed</kbd> and <kbd>Safe zone</kbd> under the diagram.</li>
-				<li>Press <kbd>Guide SVG</kbd> &mdash; the generated file opens here in a preview.</li>
-				<li>Open <kbd>Tools</kbd> for the DPI and ratio calculators.</li>
+				<li>Switch <kbd>DPI</kbd> to 72 and watch the millimetre figures change.</li>
+				<li>Press <kbd>Guide SVG</kbd> to generate and save a real template.</li>
 			</ol>
 		</div>
 

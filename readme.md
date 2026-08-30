@@ -44,7 +44,7 @@ file formats, maximum file size, notes, a source type and a last-updated date.
 
 ```
 [size_guide]                                  The full guide
-[size_guide section="print"]                  Open on a section: digital, print, tools
+[size_guide section="print"]                  Open on a section: digital or print
 [size_guide category="social"]                Open on a group (social, web, digital-ads, video, print-sizes)
 [size_guide platform="instagram"]             Open on one platform
 [size_guide format="instagram-post-portrait"] Open one size straight away
@@ -101,7 +101,7 @@ size-guide/
 | `search.js` | Token search with shorthand expansion and dimension matching. |
 | `infographic.js` | Builds the scaled SVG diagram: bleed, trim, margin, safe zone, grid, measurements. |
 | `template-generator.js` | SVG source, PNG rasterisation via canvas, print/PDF window, Blob downloads. |
-| `frontend.js` | State, routing, navigation, detail view, tools. |
+| `frontend.js` | State, routing, navigation, platform grid and detail view. |
 
 ---
 
@@ -296,5 +296,6 @@ change.
 ## Roadmap
 
 **1.1** — more platforms and print formats, size comparison, favourites, recently viewed.
-**1.2** — richer web/ad/video coverage, saved custom sizes, more calculators.
+**1.2** — a Tools section: standalone unit converter, DPI and aspect-ratio calculators, and a custom
+canvas generator. (Per-size unit switching and DPI conversion are already in the detail view.)
 **2.0** — full admin dataset editor, visual template editor, user-created templates, more export formats.

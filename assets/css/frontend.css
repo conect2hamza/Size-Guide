@@ -652,56 +652,6 @@
 	margin: 0 0 8px;
 }
 
-/* Tools
-   -------------------------------------------------------------- */
-
-.sg-tools {
-	display: grid;
-	gap: 16px;
-	grid-template-columns: repeat( auto-fit, minmax( 260px, 1fr ) );
-}
-
-.sg-tool {
-	background: var( --sg-surface );
-	border: 1px solid var( --sg-border );
-	border-radius: var( --sg-radius );
-	padding: calc( var( --sg-pad ) + 4px );
-}
-
-.sg-tool--wide {
-	grid-column: 1 / -1;
-}
-
-.sg-tool__title {
-	font-size: 1rem;
-	margin: 0 0 12px;
-}
-
-.sg-tool__result {
-	font-size: 1.35rem;
-	font-variant-numeric: tabular-nums;
-	font-weight: 700;
-	margin: 12px 0 4px;
-}
-
-.sg-tool__note {
-	color: var( --sg-muted );
-	font-size: 0.85rem;
-	margin: 0;
-}
-
-.sg-fields {
-	display: grid;
-	gap: 10px;
-	grid-template-columns: repeat( auto-fit, minmax( 110px, 1fr ) );
-}
-
-.sg-field {
-	display: flex;
-	flex-direction: column;
-	gap: 4px;
-}
-
 .sg-empty {
 	color: var( --sg-muted );
 }

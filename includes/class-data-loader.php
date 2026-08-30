@@ -375,7 +375,6 @@ class Data_Loader {
 		$names = array(
 			'digital' => __( 'Digital', 'size-guide' ),
 			'print'   => __( 'Print', 'size-guide' ),
-			'tools'   => __( 'Tools', 'size-guide' ),
 		);
 
 		return $names[ $section_id ] ?? ucwords( str_replace( '-', ' ', $section_id ) );
