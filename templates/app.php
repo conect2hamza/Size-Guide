@@ -14,10 +14,11 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$sg_uid   = wp_unique_id( 'sg-' );
-$sg_title = '' !== $atts['title'] ? $atts['title'] : __( 'Size Guide', 'size-guide' );
+$sg_uid     = wp_unique_id( 'sg-' );
+$sg_title   = '' !== $atts['title'] ? $atts['title'] : __( 'Size Guide', 'size-guide' );
+$sg_classes = SizeGuide\Size_Guide::appearance_classes( array( 'scheme' => $atts['scheme'] ) );
 ?>
-<div class="sg-app" data-sg-app
+<div class="sg-app <?php echo esc_attr( $sg_classes ); ?>" data-sg-app
 	data-section="<?php echo esc_attr( $atts['section'] ); ?>"
 	data-platform="<?php echo esc_attr( $atts['platform'] ); ?>"
 	data-format="<?php echo esc_attr( $atts['format'] ); ?>"
@@ -26,7 +27,7 @@ $sg_title = '' !== $atts['title'] ? $atts['title'] : __( 'Size Guide', 'size-gui
 	<header class="sg-app__header">
 		<div class="sg-app__titles">
 			<h2 class="sg-app__title"><?php echo esc_html( $sg_title ); ?></h2>
-			<p class="sg-app__subtitle"><?php esc_html_e( 'Design sizes &amp; specifications', 'size-guide' ); ?></p>
+			<p class="sg-app__subtitle"><?php esc_html_e( 'Design sizes & specifications', 'size-guide' ); ?></p>
 		</div>
 
 		<div class="sg-search">

@@ -18,7 +18,7 @@ API key, no account.
 
 ## What you get
 
-**255 size records** across 25 platforms and format groups:
+**255 size records** across 28 platforms and format groups:
 
 | Section | Groups | Examples |
 | --- | --- | --- |
@@ -186,6 +186,17 @@ add_filter( 'size_guide_data_files', function ( $files ) {
 	return $files;
 } );
 ```
+
+### Appearance
+
+*Size Guide → Settings → Appearance* covers the accent colour, the colour scheme (light, dark, or
+follow the visitor's system), rounded or square corners, and comfortable or compact density. A single
+page can override the scheme with `[size_guide scheme="dark"]`.
+
+The infographic reads its guide colours from CSS custom properties (`--sg-guide-bleed`, `--sg-guide-safe`,
+`--sg-guide-measure` and friends), so a theme can restyle the diagram without touching JavaScript. The
+artboard stays white in every scheme because it represents the design surface rather than the page, and
+downloaded templates always carry the standard guide colours.
 
 ### Add search shorthand
 

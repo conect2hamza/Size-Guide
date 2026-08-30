@@ -905,15 +905,18 @@
 		 */
 		buildCard: function ( format ) {
 			var self = this;
-			var ratio = Convert.ratioValue( format.width, format.height );
 
-			// Keep the preview inside a fixed box whatever the ratio.
-			var previewWidth = ratio >= 1 ? 100 : ratio * 100;
-			var previewHeight = ratio >= 1 ? ( 100 / ratio ) : 100;
+			// Scale the proportional preview down to fit the card's box, so a
+			// square or a tall story shape stays whole instead of overflowing.
+			// Only the width is set: aspect-ratio derives the height, so if a
+			// narrow card clamps the width the shape stays in proportion.
+			var box = { width: 120, height: 68 };
+			var scale = Math.min( box.width / format.width, box.height / format.height );
 
 			var preview = h( 'span', {
 				class: 'sg-card__shape',
-				style: 'width:' + previewWidth + '%;padding-top:' + ( previewHeight * ( previewWidth / 100 ) ) + '%',
+				style: 'width:' + Math.max( 8, Math.round( format.width * scale ) ) + 'px;' +
+					'aspect-ratio:' + format.width + ' / ' + format.height,
 				'aria-hidden': 'true'
 			} );
 

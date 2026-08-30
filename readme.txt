@@ -15,7 +15,7 @@ Design size reference for social media, web, ads, video and print — with safe 
 Size Guide answers the question a designer asks before starting any file: what size do I make this, how
 much safe area do I leave, what is the margin and bleed, and where do I get a ready template?
 
-It ships with 255 size records across 25 platforms and format groups, and shows each one as a scaled
+It ships with 255 size records across 28 platforms and format groups, and shows each one as a scaled
 visual diagram rather than two numbers.
 
 **Included**
@@ -35,6 +35,7 @@ visual diagram rather than two numbers.
 * Download clean and guide templates as SVG or PNG, or print to PDF
 * Unit converter, DPI calculator, aspect ratio calculator and custom canvas generator
 * Responsive, keyboard accessible, and readable without JavaScript
+* Appearance settings: accent colour, light/dark/auto colour scheme, corner style and density
 
 **No external services.** Everything is generated from local data in the browser. No API key, no account,
 no tracking, no personal data.

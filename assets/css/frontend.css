@@ -15,14 +15,81 @@
 	--sg-surface-alt: #f9fafb;
 	--sg-radius: 10px;
 	--sg-radius-sm: 6px;
+	--sg-radius-pill: 999px;
 	--sg-gap: 16px;
+	--sg-pad: 12px;
+	--sg-card-min: 150px;
 	--sg-shadow: 0 1px 2px rgba( 17, 24, 39, 0.06 ), 0 8px 24px rgba( 17, 24, 39, 0.06 );
+
+	/* Diagram colours. The infographic reads these at render time, so the
+	   guides follow the chosen appearance instead of being fixed in script. */
+	--sg-guide-canvas: #ffffff;
+	--sg-guide-bleed: #e11d48;
+	--sg-guide-bleed-fill: rgba( 225, 29, 72, 0.06 );
+	--sg-guide-trim: #111827;
+	--sg-guide-margin: #f59e0b;
+	--sg-guide-safe: #16a34a;
+	--sg-guide-safe-fill: rgba( 22, 163, 74, 0.08 );
+	--sg-guide-grid: #93c5fd;
+	--sg-guide-measure: #6b7280;
+	--sg-guide-text: #374151;
 
 	box-sizing: border-box;
 	color: var( --sg-text );
 	font-size: 16px;
 	line-height: 1.5;
 	max-width: 100%;
+}
+
+/* Appearance: dark ---------------------------------------------------------
+   The artboard itself stays white in both schemes — it stands for the design
+   surface, not the page. Only the measurements drawn outside it need to flip. */
+
+.sg-app--dark {
+	--sg-text: #e5e7eb;
+	--sg-muted: #9ca3af;
+	--sg-border: #374151;
+	--sg-surface: #111827;
+	--sg-surface-alt: #1f2937;
+	--sg-shadow: 0 1px 2px rgba( 0, 0, 0, 0.4 ), 0 8px 24px rgba( 0, 0, 0, 0.35 );
+	--sg-guide-bleed-fill: rgba( 225, 29, 72, 0.14 );
+	--sg-guide-safe-fill: rgba( 22, 163, 74, 0.16 );
+	--sg-guide-measure: #9ca3af;
+	--sg-guide-text: #d1d5db;
+}
+
+@media ( prefers-color-scheme: dark ) {
+
+	.sg-app--auto {
+		--sg-text: #e5e7eb;
+		--sg-muted: #9ca3af;
+		--sg-border: #374151;
+		--sg-surface: #111827;
+		--sg-surface-alt: #1f2937;
+		--sg-shadow: 0 1px 2px rgba( 0, 0, 0, 0.4 ), 0 8px 24px rgba( 0, 0, 0, 0.35 );
+		--sg-guide-bleed-fill: rgba( 225, 29, 72, 0.14 );
+		--sg-guide-safe-fill: rgba( 22, 163, 74, 0.16 );
+		--sg-guide-measure: #9ca3af;
+		--sg-guide-text: #d1d5db;
+	}
+}
+
+/* Appearance: corners ------------------------------------------------------ */
+
+.sg-app--square {
+	--sg-radius: 0;
+	--sg-radius-sm: 0;
+	--sg-radius-pill: 0;
+}
+
+/* Appearance: density ------------------------------------------------------ */
+
+.sg-app--compact {
+	--sg-gap: 11px;
+	--sg-pad: 8px;
+	--sg-card-min: 128px;
+
+	font-size: 15px;
 }
 
 .sg-app *,
@@ -167,7 +234,7 @@
 .sg-tab {
 	background: var( --sg-surface-alt );
 	border: 1px solid transparent;
-	border-radius: 999px;
+	border-radius: var( --sg-radius-pill );
 	color: var( --sg-muted );
 	cursor: pointer;
 	font: inherit;
@@ -274,7 +341,7 @@
 .sg-grid {
 	display: grid;
 	gap: 12px;
-	grid-template-columns: repeat( auto-fill, minmax( 150px, 1fr ) );
+	grid-template-columns: repeat( auto-fill, minmax( var( --sg-card-min ), 1fr ) );
 }
 
 .sg-card {
@@ -287,7 +354,7 @@
 	flex-direction: column;
 	font: inherit;
 	gap: 4px;
-	padding: 12px;
+	padding: var( --sg-pad );
 	text-align: left;
 	transition: border-color 0.15s ease, transform 0.15s ease;
 }
@@ -312,9 +379,12 @@
 .sg-card__shape {
 	background: var( --sg-surface );
 	border: 1.5px solid var( --sg-accent );
-	border-radius: 3px;
+	border-radius: 2px;
 	display: block;
+	flex: none;
+	height: auto;
 	max-height: 100%;
+	max-width: 100%;
 }
 
 .sg-card__name {
@@ -563,7 +633,7 @@
 	display: grid;
 	gap: 12px;
 	grid-template-columns: 130px minmax( 0, 1fr );
-	padding: 9px 0;
+	padding: calc( var( --sg-pad ) * 0.75 ) 0;
 }
 
 .sg-specs dt {
@@ -595,7 +665,7 @@
 	background: var( --sg-surface );
 	border: 1px solid var( --sg-border );
 	border-radius: var( --sg-radius );
-	padding: 16px;
+	padding: calc( var( --sg-pad ) + 4px );
 }
 
 .sg-tool--wide {

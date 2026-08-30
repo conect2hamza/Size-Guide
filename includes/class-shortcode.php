@@ -54,6 +54,7 @@ class Shortcode {
 				'platform' => '',
 				'format'   => '',
 				'search'   => '',
+				'scheme'   => '',
 				'title'    => '',
 			),
 			$atts,

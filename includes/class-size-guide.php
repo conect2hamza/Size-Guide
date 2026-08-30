@@ -80,6 +80,9 @@ class Size_Guide {
 			'enable_download' => 1,
 			'load_via_rest'   => 0,
 			'accent_color'    => '#2563eb',
+			'color_scheme'    => 'light',
+			'corner_style'    => 'rounded',
+			'density'         => 'comfortable',
 		);
 	}
 
@@ -169,9 +172,11 @@ class Size_Guide {
 
 		$settings = self::get_settings();
 
+		// Scoped to .sg-app: the stylesheet declares --sg-accent on that same
+		// element, so a :root rule here would never win.
 		wp_add_inline_style(
 			'size-guide-frontend',
-			':root{--sg-accent:' . esc_attr( $settings['accent_color'] ) . ';}'
+			'.sg-app{--sg-accent:' . esc_attr( $settings['accent_color'] ) . ';}'
 		);
 
 		// The dataset is inlined by default so the guide works on first paint.
@@ -199,6 +204,32 @@ class Size_Guide {
 				'i18n'          => self::strings(),
 			)
 		);
+	}
+
+	/**
+	 * Appearance classes for the app root.
+	 *
+	 * @param array $overrides Per-shortcode overrides.
+	 * @return string Space separated class list.
+	 */
+	public static function appearance_classes( array $overrides = array() ) {
+		$settings = self::get_settings();
+		$classes  = array();
+
+		$scheme = ! empty( $overrides['scheme'] ) ? $overrides['scheme'] : $settings['color_scheme'];
+		if ( in_array( $scheme, array( 'dark', 'auto' ), true ) ) {
+			$classes[] = 'sg-app--' . $scheme;
+		}
+
+		if ( 'square' === $settings['corner_style'] ) {
+			$classes[] = 'sg-app--square';
+		}
+
+		if ( 'compact' === $settings['density'] ) {
+			$classes[] = 'sg-app--compact';
+		}
+
+		return implode( ' ', $classes );
 	}
 
 	/**

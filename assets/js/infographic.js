@@ -24,6 +24,21 @@
 		text: '#374151'
 	};
 
+	/* CSS custom property behind each colour, so the appearance settings and a
+	   theme's own overrides both reach the diagram. */
+	var COLOR_TOKENS = {
+		canvas: '--sg-guide-canvas',
+		bleed: '--sg-guide-bleed',
+		bleedFill: '--sg-guide-bleed-fill',
+		trim: '--sg-guide-trim',
+		margin: '--sg-guide-margin',
+		safe: '--sg-guide-safe',
+		safeFill: '--sg-guide-safe-fill',
+		grid: '--sg-guide-grid',
+		measure: '--sg-guide-measure',
+		text: '--sg-guide-text'
+	};
+
 	var DEFAULT_OPTIONS = {
 		measurements: true,
 		safeZone: true,
@@ -68,6 +83,34 @@
 	var Infographic = {
 
 		COLORS: COLORS,
+
+		/**
+		 * Resolve the diagram palette from the CSS custom properties in force
+		 * on an element, falling back to the built-in colours.
+		 *
+		 * Downloads deliberately do not use this: a template file should carry
+		 * the standard guide colours whatever the site looks like.
+		 *
+		 * @param {HTMLElement} element Element to read the cascade from.
+		 * @return {Object} Colour map.
+		 */
+		resolveColors: function ( element ) {
+			if ( ! element || ! window.getComputedStyle ) {
+				return COLORS;
+			}
+
+			var styles = window.getComputedStyle( element );
+			var resolved = {};
+
+			Object.keys( COLORS ).forEach( function ( key ) {
+				var token = COLOR_TOKENS[ key ];
+				var value = token ? styles.getPropertyValue( token ).trim() : '';
+
+				resolved[ key ] = value || COLORS[ key ];
+			} );
+
+			return resolved;
+		},
 
 		/**
 		 * Work out every rectangle the diagram needs, in the record's own unit.
@@ -130,6 +173,7 @@
 			options = Object.assign( {}, DEFAULT_OPTIONS, options || {} );
 			strings = strings || {};
 
+			var colors = options.colors || COLORS;
 			var geo = Infographic.geometry( format, options );
 			var scale = Math.max( geo.docWidth, geo.docHeight );
 			var stroke = scale / 400;
@@ -164,8 +208,8 @@
 					y: 0,
 					width: geo.docWidth,
 					height: geo.docHeight,
-					fill: COLORS.bleedFill,
-					stroke: COLORS.bleed,
+					fill: colors.bleedFill,
+					stroke: colors.bleed,
 					'stroke-width': stroke,
 					'stroke-dasharray': stroke * 6
 				} ) );
@@ -177,15 +221,15 @@
 				y: geo.trim.y,
 				width: geo.trim.width,
 				height: geo.trim.height,
-				fill: COLORS.canvas,
-				stroke: COLORS.trim,
+				fill: colors.canvas,
+				stroke: colors.trim,
 				'stroke-width': stroke * 1.4
 			} ) );
 
 			// Grid: thirds plus centre lines.
 			if ( options.grid ) {
 				var grid = el( 'g', {
-					stroke: COLORS.grid,
+					stroke: colors.grid,
 					'stroke-width': stroke * 0.8,
 					'stroke-dasharray': stroke * 4,
 					fill: 'none'
@@ -217,7 +261,7 @@
 					width: geo.margin.width,
 					height: geo.margin.height,
 					fill: 'none',
-					stroke: COLORS.margin,
+					stroke: colors.margin,
 					'stroke-width': stroke,
 					'stroke-dasharray': stroke * 4
 				} ) );
@@ -230,8 +274,8 @@
 					y: geo.safe.y,
 					width: geo.safe.width,
 					height: geo.safe.height,
-					fill: COLORS.safeFill,
-					stroke: COLORS.safe,
+					fill: colors.safeFill,
+					stroke: colors.safe,
 					'stroke-width': stroke,
 					'stroke-dasharray': stroke * 3
 				} ) );
@@ -243,14 +287,14 @@
 						'text-anchor': 'middle',
 						'font-size': Math.min( font, geo.safe.width / 12 ),
 						'font-family': 'inherit',
-						fill: COLORS.safe,
+						fill: colors.safe,
 						'letter-spacing': stroke
 					} ) );
 				}
 			}
 
 			if ( options.labels ) {
-				Infographic.appendLabels( svg, geo, format, font, strings );
+				Infographic.appendLabels( svg, geo, format, font, strings, colors );
 			}
 
 			if ( options.measurements ) {
@@ -259,7 +303,8 @@
 					stroke: stroke,
 					pad: pad,
 					unit: displayUnit,
-					dpi: dpi
+					dpi: dpi,
+					colors: colors
 				} );
 			}
 
@@ -274,8 +319,10 @@
 		 * @param {Object}     format  Format record.
 		 * @param {number}     font    Base font size.
 		 * @param {Object}     strings Translated labels.
+		 * @param {Object}     colors  Resolved palette.
 		 */
-		appendLabels: function ( svg, geo, format, font, strings ) {
+		appendLabels: function ( svg, geo, format, font, strings, colors ) {
+			colors = colors || COLORS;
 			var small = font * 0.62;
 
 			// A band thinner than this cannot hold readable type, and a label
@@ -288,7 +335,7 @@
 					y: geo.bleed * 0.72,
 					'text-anchor': 'middle',
 					'font-size': Math.min( small, geo.bleed * 0.9 ),
-					fill: COLORS.bleed
+					fill: colors.bleed
 				} ) );
 			}
 
@@ -300,7 +347,7 @@
 					y: geo.trim.y + Math.max( gap * 0.62, small ),
 					'text-anchor': 'middle',
 					'font-size': Math.min( small, Math.max( gap * 0.7, 1 ) ),
-					fill: COLORS.margin
+					fill: colors.margin
 				} ) );
 			}
 		},
@@ -314,8 +361,9 @@
 		 * @param {Object}     opts   Drawing options.
 		 */
 		appendMeasurements: function ( svg, geo, format, opts ) {
+			var colors = opts.colors || COLORS;
 			var group = el( 'g', {
-				stroke: COLORS.measure,
+				stroke: colors.measure,
 				'stroke-width': opts.stroke,
 				fill: 'none'
 			} );
@@ -354,7 +402,7 @@
 				y: y - ( tick * 1.8 ),
 				'text-anchor': 'middle',
 				'font-size': opts.font * 0.8,
-				fill: COLORS.text
+				fill: colors.text
 			} ) );
 
 			var heightText = text( heightLabel, {
@@ -362,7 +410,7 @@
 				y: geo.trim.y + ( geo.trim.height / 2 ),
 				'text-anchor': 'middle',
 				'font-size': opts.font * 0.8,
-				fill: COLORS.text
+				fill: colors.text
 			} );
 			heightText.setAttribute(
 				'transform',
@@ -381,6 +429,10 @@
 		 * @return {SVGElement} The rendered SVG.
 		 */
 		render: function ( container, format, options, strings ) {
+			options = Object.assign( {}, options || {}, {
+				colors: Infographic.resolveColors( container )
+			} );
+
 			var svg = Infographic.build( format, options, strings );
 
 			container.textContent = '';

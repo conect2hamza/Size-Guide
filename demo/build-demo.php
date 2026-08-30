@@ -1,0 +1,166 @@
+<?php
+/**
+ * Build the standalone HTML demo.
+ *
+ * Runs the plugin's real data loader and real app template against a small set
+ * of WordPress function stubs, then inlines the plugin's own CSS and JS. The
+ * demo therefore cannot drift from the plugin: rebuild it after changing the
+ * dataset or the frontend.
+ *
+ *   php demo/build-demo.php              writes demo/index.html (standalone page)
+ *   php demo/build-demo.php --artifact   writes demo/artifact.html (no <html> wrapper)
+ *
+ * @package SizeGuide
+ */
+
+$sg_root = dirname( __DIR__ ) . '/';
+
+/* ---------------------------------------------------------------------------
+ * The slice of WordPress the data loader and template actually touch.
+ * ------------------------------------------------------------------------ */
+
+define( 'ABSPATH', $sg_root );
+define( 'DAY_IN_SECONDS', 86400 );
+define( 'SIZE_GUIDE_PATH', $sg_root );
+define( 'SIZE_GUIDE_VERSION', '1.0.0' );
+define( 'SIZE_GUIDE_BASENAME', 'size-guide/size-guide.php' );
+
+function get_transient( $key ) {
+	return false; }
+function set_transient( $key, $value, $ttl = 0 ) {
+	return true; }
+function delete_transient( $key ) {
+	return true; }
+function get_option( $key, $default = false ) {
+	return $default; }
+function apply_filters( $tag, $value ) {
+	return $value; }
+function sanitize_key( $key ) {
+	return preg_replace( '/[^a-z0-9_\-]/', '', strtolower( (string) $key ) ); }
+function esc_url_raw( $url ) {
+	return $url; }
+function esc_url( $url ) {
+	return htmlspecialchars( (string) $url, ENT_QUOTES ); }
+function esc_attr( $text ) {
+	return htmlspecialchars( (string) $text, ENT_QUOTES ); }
+function esc_html( $text ) {
+	return htmlspecialchars( (string) $text, ENT_QUOTES ); }
+function esc_html_e( $text, $domain = null ) {
+	echo esc_html( $text ); }
+function esc_attr_e( $text, $domain = null ) {
+	echo esc_attr( $text ); }
+function __( $text, $domain = null ) {
+	return $text; }
+function _x( $text, $context, $domain = null ) {
+	return $text; }
+function _n( $single, $plural, $number, $domain = null ) {
+	return 1 === $number ? $single : $plural; }
+function load_plugin_textdomain() {}
+function add_action() {}
+function add_filter() {}
+function rest_url( $path = '' ) {
+	return '/wp-json/' . ltrim( $path, '/' ); }
+function wp_parse_args( $args, $defaults = array() ) {
+	return array_merge( $defaults, (array) $args ); }
+function sanitize_hex_color( $color ) {
+	return preg_match( '/^#([A-Fa-f0-9]{3}){1,2}$/', (string) $color ) ? $color : ''; }
+
+$GLOBALS['sg_uid'] = 0;
+function wp_unique_id( $prefix = '' ) {
+	return $prefix . ++$GLOBALS['sg_uid']; }
+
+require $sg_root . 'includes/class-data-loader.php';
+require $sg_root . 'includes/class-size-guide.php';
+
+use SizeGuide\Data_Loader;
+use SizeGuide\Size_Guide;
+
+/* ---------------------------------------------------------------------------
+ * Render the plugin's own shell through its own template.
+ * ------------------------------------------------------------------------ */
+
+$dataset = Data_Loader::get_dataset();
+$atts    = array(
+	'section'  => '',
+	'category' => '',
+	'platform' => '',
+	'format'   => '',
+	'search'   => '',
+	'scheme'   => '',
+	'title'    => 'Design size reference',
+);
+
+ob_start();
+include $sg_root . 'templates/app.php';
+$sg_app_markup = (string) ob_get_clean();
+
+$sg_payload = wp_json_encode_compat(
+	array(
+		'dataset'       => $dataset,
+		'abbreviations' => Data_Loader::abbreviations(),
+		'settings'      => array(
+			'defaultSection' => 'digital',
+			'defaultUnit'    => 'px',
+			'defaultDpi'     => 300,
+			'showTools'      => true,
+			'showSources'    => true,
+			'enableDownload' => true,
+		),
+		'initial'       => $atts,
+		'i18n'          => Size_Guide::strings(),
+	)
+);
+
+/**
+ * Encode without escaping slashes, so inlined text stays readable.
+ *
+ * @param mixed $value Value to encode.
+ * @return string
+ */
+function wp_json_encode_compat( $value ) {
+	return json_encode( $value, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE );
+}
+
+/* ---------------------------------------------------------------------------
+ * Collect the plugin's assets.
+ * ------------------------------------------------------------------------ */
+
+$sg_css = '';
+foreach ( array( 'frontend.css', 'infographic.css' ) as $sg_file ) {
+	$sg_css .= "\n/* assets/css/$sg_file */\n" . file_get_contents( $sg_root . 'assets/css/' . $sg_file );
+}
+
+$sg_js = '';
+foreach ( array( 'converter.js', 'search.js', 'infographic.js', 'template-generator.js', 'frontend.js' ) as $sg_file ) {
+	$sg_js .= "\n/* assets/js/$sg_file */\n" . file_get_contents( $sg_root . 'assets/js/' . $sg_file );
+}
+
+$sg_stats = array(
+	'sections'  => count( $dataset['sections'] ),
+	'platforms' => 0,
+	'formats'   => count( $dataset['index'] ),
+	'files'     => count( glob( $sg_root . 'data/*.json' ) ),
+);
+foreach ( $dataset['sections'] as $sg_section ) {
+	foreach ( $sg_section['groups'] as $sg_group ) {
+		$sg_stats['platforms'] += count( $sg_group['platforms'] );
+	}
+}
+
+$sg_page = require __DIR__ . '/page.php';
+
+$sg_artifact = in_array( '--artifact', $argv, true );
+
+if ( $sg_artifact ) {
+	file_put_contents( __DIR__ . '/artifact.html', $sg_page );
+	echo "Wrote demo/artifact.html (" . number_format( strlen( $sg_page ) / 1024, 1 ) . " KB)\n";
+} else {
+	$sg_doc = "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n"
+		. "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n"
+		. "</head>\n<body>\n" . $sg_page . "\n</body>\n</html>\n";
+
+	file_put_contents( __DIR__ . '/index.html', $sg_doc );
+	echo "Wrote demo/index.html (" . number_format( strlen( $sg_doc ) / 1024, 1 ) . " KB)\n";
+}
+
+echo "  {$sg_stats['formats']} sizes · {$sg_stats['platforms']} platforms · {$sg_stats['files']} dataset files\n";

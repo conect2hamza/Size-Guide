@@ -171,6 +171,21 @@ class Admin {
 		$color                 = isset( $input['accent_color'] ) ? sanitize_hex_color( $input['accent_color'] ) : '';
 		$clean['accent_color'] = $color ? $color : $defaults['accent_color'];
 
+		$schemes               = array( 'light', 'dark', 'auto' );
+		$clean['color_scheme'] = in_array( $input['color_scheme'] ?? '', $schemes, true )
+			? $input['color_scheme']
+			: $defaults['color_scheme'];
+
+		$corners               = array( 'rounded', 'square' );
+		$clean['corner_style'] = in_array( $input['corner_style'] ?? '', $corners, true )
+			? $input['corner_style']
+			: $defaults['corner_style'];
+
+		$densities        = array( 'comfortable', 'compact' );
+		$clean['density'] = in_array( $input['density'] ?? '', $densities, true )
+			? $input['density']
+			: $defaults['density'];
+
 		Data_Loader::flush_cache();
 
 		return $clean;
