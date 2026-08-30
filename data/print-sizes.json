@@ -1,0 +1,1449 @@
+{
+  "schema_version": 1,
+  "id": "print-sizes",
+  "section": "print",
+  "name": "Print Sizes",
+  "order": 40,
+  "defaults": {
+    "unit": "mm",
+    "dpi": 300,
+    "bleed": 3,
+    "margin": 5,
+    "safe_zone": 8,
+    "file_formats": [
+      "PDF",
+      "AI",
+      "INDD"
+    ],
+    "source": {
+      "type": "common-practice",
+      "name": "Standard print trade sizes",
+      "url": "",
+      "checked_date": "2026-08-29"
+    },
+    "last_updated": "2026-08"
+  },
+  "platforms": [
+    {
+      "id": "paper-sizes",
+      "name": "Paper Sizes",
+      "aliases": [
+        "iso",
+        "din",
+        "a series",
+        "b series",
+        "c series"
+      ],
+      "categories": [
+        {
+          "id": "a-series",
+          "name": "A Series",
+          "defaults": {
+            "source": {
+              "type": "official",
+              "name": "ISO 216",
+              "url": "",
+              "checked_date": "2026-08-29"
+            }
+          },
+          "formats": [
+            {
+              "id": "print-a0",
+              "name": "A0",
+              "aliases": [
+                "A0 paper",
+                "A0 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "a series",
+                "portrait"
+              ],
+              "width": 841,
+              "height": 1189,
+              "notes": "The base sheet of the A series: one square metre of area. 9933 x 14043 px at 300 DPI."
+            },
+            {
+              "id": "print-a1",
+              "name": "A1",
+              "aliases": [
+                "A1 paper",
+                "A1 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "a series",
+                "portrait"
+              ],
+              "width": 594,
+              "height": 841,
+              "notes": "Half an A0 sheet. Common for large posters and technical drawings. 7016 x 9933 px at 300 DPI."
+            },
+            {
+              "id": "print-a2",
+              "name": "A2",
+              "aliases": [
+                "A2 paper",
+                "A2 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "a series",
+                "portrait"
+              ],
+              "width": 420,
+              "height": 594,
+              "notes": "Common poster and drawing size. 4961 x 7016 px at 300 DPI."
+            },
+            {
+              "id": "print-a3",
+              "name": "A3",
+              "aliases": [
+                "A3 paper",
+                "A3 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "a series",
+                "portrait"
+              ],
+              "width": 297,
+              "height": 420,
+              "notes": "Two A4 pages side by side. Used for posters, menus and spreads. 3508 x 4961 px at 300 DPI."
+            },
+            {
+              "id": "print-a4",
+              "name": "A4",
+              "aliases": [
+                "A4 paper",
+                "A4 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "a series",
+                "portrait"
+              ],
+              "width": 210,
+              "height": 297,
+              "notes": "The standard document and letterhead size in most of the world. 2480 x 3508 px at 300 DPI."
+            },
+            {
+              "id": "print-a5",
+              "name": "A5",
+              "aliases": [
+                "A5 paper",
+                "A5 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "a series",
+                "portrait"
+              ],
+              "width": 148,
+              "height": 210,
+              "notes": "Half an A4 sheet. Common for flyers, notebooks and invitations. 1748 x 2480 px at 300 DPI."
+            },
+            {
+              "id": "print-a6",
+              "name": "A6",
+              "aliases": [
+                "A6 paper",
+                "A6 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "a series",
+                "portrait"
+              ],
+              "width": 105,
+              "height": 148,
+              "notes": "Standard postcard size. 1240 x 1748 px at 300 DPI."
+            },
+            {
+              "id": "print-a7",
+              "name": "A7",
+              "aliases": [
+                "A7 paper",
+                "A7 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "a series",
+                "portrait"
+              ],
+              "width": 74,
+              "height": 105,
+              "notes": "Pocket-sized cards and small vouchers. 874 x 1240 px at 300 DPI."
+            },
+            {
+              "id": "print-a8",
+              "name": "A8",
+              "aliases": [
+                "A8 paper",
+                "A8 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "a series",
+                "portrait"
+              ],
+              "width": 52,
+              "height": 74,
+              "notes": "Small tickets and labels. 614 x 874 px at 300 DPI."
+            },
+            {
+              "id": "print-a9",
+              "name": "A9",
+              "aliases": [
+                "A9 paper",
+                "A9 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "a series",
+                "portrait"
+              ],
+              "width": 37,
+              "height": 52,
+              "notes": "Very small labels and tags. 437 x 614 px at 300 DPI."
+            },
+            {
+              "id": "print-a10",
+              "name": "A10",
+              "aliases": [
+                "A10 paper",
+                "A10 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "a series",
+                "portrait"
+              ],
+              "width": 26,
+              "height": 37,
+              "notes": "The smallest A-series size. 307 x 437 px at 300 DPI."
+            }
+          ]
+        },
+        {
+          "id": "b-series",
+          "name": "B Series",
+          "defaults": {
+            "source": {
+              "type": "official",
+              "name": "ISO 216",
+              "url": "",
+              "checked_date": "2026-08-29"
+            }
+          },
+          "formats": [
+            {
+              "id": "print-b0",
+              "name": "B0",
+              "aliases": [
+                "B0 paper",
+                "B0 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "b series",
+                "portrait"
+              ],
+              "width": 1000,
+              "height": 1414,
+              "notes": "ISO 216 B-series sheet, sized between two A-series steps. Often used for posters and books. 11811 x 16701 px at 300 DPI."
+            },
+            {
+              "id": "print-b1",
+              "name": "B1",
+              "aliases": [
+                "B1 paper",
+                "B1 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "b series",
+                "portrait"
+              ],
+              "width": 707,
+              "height": 1000,
+              "notes": "ISO 216 B-series sheet, sized between two A-series steps. Often used for posters and books. 8350 x 11811 px at 300 DPI."
+            },
+            {
+              "id": "print-b2",
+              "name": "B2",
+              "aliases": [
+                "B2 paper",
+                "B2 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "b series",
+                "portrait"
+              ],
+              "width": 500,
+              "height": 707,
+              "notes": "ISO 216 B-series sheet, sized between two A-series steps. Often used for posters and books. 5906 x 8350 px at 300 DPI."
+            },
+            {
+              "id": "print-b3",
+              "name": "B3",
+              "aliases": [
+                "B3 paper",
+                "B3 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "b series",
+                "portrait"
+              ],
+              "width": 353,
+              "height": 500,
+              "notes": "ISO 216 B-series sheet, sized between two A-series steps. Often used for posters and books. 4169 x 5906 px at 300 DPI."
+            },
+            {
+              "id": "print-b4",
+              "name": "B4",
+              "aliases": [
+                "B4 paper",
+                "B4 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "b series",
+                "portrait"
+              ],
+              "width": 250,
+              "height": 353,
+              "notes": "ISO 216 B-series sheet, sized between two A-series steps. Often used for posters and books. 2953 x 4169 px at 300 DPI."
+            },
+            {
+              "id": "print-b5",
+              "name": "B5",
+              "aliases": [
+                "B5 paper",
+                "B5 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "b series",
+                "portrait"
+              ],
+              "width": 176,
+              "height": 250,
+              "notes": "ISO 216 B-series sheet, sized between two A-series steps. Often used for posters and books. 2079 x 2953 px at 300 DPI."
+            },
+            {
+              "id": "print-b6",
+              "name": "B6",
+              "aliases": [
+                "B6 paper",
+                "B6 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "b series",
+                "portrait"
+              ],
+              "width": 125,
+              "height": 176,
+              "notes": "ISO 216 B-series sheet, sized between two A-series steps. Often used for posters and books. 1476 x 2079 px at 300 DPI."
+            },
+            {
+              "id": "print-b7",
+              "name": "B7",
+              "aliases": [
+                "B7 paper",
+                "B7 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "b series",
+                "portrait"
+              ],
+              "width": 88,
+              "height": 125,
+              "notes": "ISO 216 B-series sheet, sized between two A-series steps. Often used for posters and books. 1039 x 1476 px at 300 DPI."
+            },
+            {
+              "id": "print-b8",
+              "name": "B8",
+              "aliases": [
+                "B8 paper",
+                "B8 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "b series",
+                "portrait"
+              ],
+              "width": 62,
+              "height": 88,
+              "notes": "ISO 216 B-series sheet, sized between two A-series steps. Often used for posters and books. 732 x 1039 px at 300 DPI."
+            },
+            {
+              "id": "print-b9",
+              "name": "B9",
+              "aliases": [
+                "B9 paper",
+                "B9 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "b series",
+                "portrait"
+              ],
+              "width": 44,
+              "height": 62,
+              "notes": "ISO 216 B-series sheet, sized between two A-series steps. Often used for posters and books. 520 x 732 px at 300 DPI."
+            },
+            {
+              "id": "print-b10",
+              "name": "B10",
+              "aliases": [
+                "B10 paper",
+                "B10 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "b series",
+                "portrait"
+              ],
+              "width": 31,
+              "height": 44,
+              "notes": "ISO 216 B-series sheet, sized between two A-series steps. Often used for posters and books. 366 x 520 px at 300 DPI."
+            }
+          ]
+        },
+        {
+          "id": "c-series",
+          "name": "C Series (Envelopes)",
+          "defaults": {
+            "source": {
+              "type": "official",
+              "name": "ISO 269 / ISO 216",
+              "url": "",
+              "checked_date": "2026-08-29"
+            }
+          },
+          "formats": [
+            {
+              "id": "print-c0",
+              "name": "C0",
+              "aliases": [
+                "C0 paper",
+                "C0 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "c series",
+                "portrait"
+              ],
+              "width": 917,
+              "height": 1297,
+              "notes": "ISO C-series envelope size, made to hold the matching A-series sheet. 10831 x 15319 px at 300 DPI."
+            },
+            {
+              "id": "print-c1",
+              "name": "C1",
+              "aliases": [
+                "C1 paper",
+                "C1 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "c series",
+                "portrait"
+              ],
+              "width": 648,
+              "height": 917,
+              "notes": "ISO C-series envelope size, made to hold the matching A-series sheet. 7654 x 10831 px at 300 DPI."
+            },
+            {
+              "id": "print-c2",
+              "name": "C2",
+              "aliases": [
+                "C2 paper",
+                "C2 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "c series",
+                "portrait"
+              ],
+              "width": 458,
+              "height": 648,
+              "notes": "ISO C-series envelope size, made to hold the matching A-series sheet. 5409 x 7654 px at 300 DPI."
+            },
+            {
+              "id": "print-c3",
+              "name": "C3",
+              "aliases": [
+                "C3 paper",
+                "C3 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "c series",
+                "portrait"
+              ],
+              "width": 324,
+              "height": 458,
+              "notes": "Holds an unfolded A3 sheet. 3827 x 5409 px at 300 DPI."
+            },
+            {
+              "id": "print-c4",
+              "name": "C4",
+              "aliases": [
+                "C4 paper",
+                "C4 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "c series",
+                "portrait"
+              ],
+              "width": 229,
+              "height": 324,
+              "notes": "Holds an unfolded A4 sheet. 2705 x 3827 px at 300 DPI."
+            },
+            {
+              "id": "print-c5",
+              "name": "C5",
+              "aliases": [
+                "C5 paper",
+                "C5 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "c series",
+                "portrait"
+              ],
+              "width": 162,
+              "height": 229,
+              "notes": "Holds an A4 sheet folded once, or an unfolded A5. 1913 x 2705 px at 300 DPI."
+            },
+            {
+              "id": "print-c6",
+              "name": "C6",
+              "aliases": [
+                "C6 paper",
+                "C6 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "c series",
+                "portrait"
+              ],
+              "width": 114,
+              "height": 162,
+              "notes": "Holds an A4 sheet folded twice, or an unfolded A6. 1346 x 1913 px at 300 DPI."
+            },
+            {
+              "id": "print-c7",
+              "name": "C7",
+              "aliases": [
+                "C7 paper",
+                "C7 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "c series",
+                "portrait"
+              ],
+              "width": 81,
+              "height": 114,
+              "notes": "ISO C-series envelope size, made to hold the matching A-series sheet. 957 x 1346 px at 300 DPI."
+            },
+            {
+              "id": "print-c8",
+              "name": "C8",
+              "aliases": [
+                "C8 paper",
+                "C8 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "c series",
+                "portrait"
+              ],
+              "width": 57,
+              "height": 81,
+              "notes": "ISO C-series envelope size, made to hold the matching A-series sheet. 673 x 957 px at 300 DPI."
+            },
+            {
+              "id": "print-c9",
+              "name": "C9",
+              "aliases": [
+                "C9 paper",
+                "C9 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "c series",
+                "portrait"
+              ],
+              "width": 40,
+              "height": 57,
+              "notes": "ISO C-series envelope size, made to hold the matching A-series sheet. 472 x 673 px at 300 DPI."
+            },
+            {
+              "id": "print-c10",
+              "name": "C10",
+              "aliases": [
+                "C10 paper",
+                "C10 size"
+              ],
+              "keywords": [
+                "iso 216",
+                "c series",
+                "portrait"
+              ],
+              "width": 28,
+              "height": 40,
+              "notes": "ISO C-series envelope size, made to hold the matching A-series sheet. 331 x 472 px at 300 DPI."
+            }
+          ]
+        },
+        {
+          "id": "us-sizes",
+          "name": "US & Other Sizes",
+          "defaults": {
+            "source": {
+              "type": "official",
+              "name": "ANSI / US standard sizes",
+              "url": "",
+              "checked_date": "2026-08-29"
+            }
+          },
+          "formats": [
+            {
+              "id": "print-us-letter",
+              "name": "US Letter",
+              "aliases": [
+                "letter",
+                "8.5x11"
+              ],
+              "keywords": [
+                "ansi a",
+                "american"
+              ],
+              "width": 215.9,
+              "height": 279.4,
+              "notes": "8.5 x 11 in — the standard document size in North America. 2550 x 3300 px at 300 DPI."
+            },
+            {
+              "id": "print-us-legal",
+              "name": "US Legal",
+              "aliases": [
+                "legal",
+                "8.5x14"
+              ],
+              "width": 215.9,
+              "height": 355.6,
+              "notes": "8.5 x 14 in — used for contracts and legal documents. 2550 x 4200 px at 300 DPI."
+            },
+            {
+              "id": "print-us-tabloid",
+              "name": "Tabloid / Ledger",
+              "aliases": [
+                "11x17",
+                "ansi b"
+              ],
+              "width": 279.4,
+              "height": 431.8,
+              "notes": "11 x 17 in — two Letter pages side by side. 3300 x 5100 px at 300 DPI."
+            },
+            {
+              "id": "print-us-half-letter",
+              "name": "Half Letter",
+              "aliases": [
+                "statement",
+                "5.5x8.5"
+              ],
+              "width": 139.7,
+              "height": 215.9,
+              "notes": "5.5 x 8.5 in — the US equivalent of A5. 1650 x 2550 px at 300 DPI."
+            },
+            {
+              "id": "print-executive",
+              "name": "Executive",
+              "width": 184.15,
+              "height": 266.7,
+              "notes": "7.25 x 10.5 in — a slightly smaller business document size."
+            },
+            {
+              "id": "print-ansi-c",
+              "name": "ANSI C",
+              "aliases": [
+                "17x22"
+              ],
+              "width": 431.8,
+              "height": 558.8,
+              "notes": "17 x 22 in — four Letter pages. Used for drawings and large posters."
+            },
+            {
+              "id": "print-ansi-d",
+              "name": "ANSI D",
+              "aliases": [
+                "22x34"
+              ],
+              "width": 558.8,
+              "height": 863.6,
+              "notes": "22 x 34 in — architectural and engineering drawings."
+            },
+            {
+              "id": "print-ansi-e",
+              "name": "ANSI E",
+              "aliases": [
+                "34x44"
+              ],
+              "width": 863.6,
+              "height": 1117.6,
+              "notes": "34 x 44 in — the largest standard ANSI drawing sheet."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "business-card",
+      "name": "Business Card",
+      "aliases": [
+        "bc",
+        "visiting card",
+        "name card"
+      ],
+      "categories": [
+        {
+          "id": "standard",
+          "name": "Standard Sizes",
+          "formats": [
+            {
+              "id": "print-business-card-eu",
+              "name": "Business Card — Europe",
+              "aliases": [
+                "85x55"
+              ],
+              "keywords": [
+                "iso 7810 style",
+                "standard"
+              ],
+              "width": 85,
+              "height": 55,
+              "notes": "The most common size across Europe and much of Asia. 1004 x 650 px at 300 DPI with bleed."
+            },
+            {
+              "id": "print-business-card-us",
+              "name": "Business Card — US",
+              "aliases": [
+                "3.5x2",
+                "88.9x50.8"
+              ],
+              "width": 88.9,
+              "height": 50.8,
+              "notes": "3.5 x 2 in — the North American standard. 1050 x 600 px at 300 DPI."
+            },
+            {
+              "id": "print-business-card-uk",
+              "name": "Business Card — UK",
+              "aliases": [
+                "85x55 uk"
+              ],
+              "width": 85,
+              "height": 55,
+              "notes": "The UK uses the same 85 x 55 mm card as most of Europe."
+            },
+            {
+              "id": "print-business-card-square",
+              "name": "Business Card — Square",
+              "width": 55,
+              "height": 55,
+              "notes": "A square card stands out but costs more to trim; check your printer supports it."
+            },
+            {
+              "id": "print-business-card-slim",
+              "name": "Business Card — Slim",
+              "aliases": [
+                "mini card"
+              ],
+              "width": 85,
+              "height": 40,
+              "notes": "A narrow card, often used for appointment and loyalty cards."
+            },
+            {
+              "id": "print-business-card-folded",
+              "name": "Folded Business Card",
+              "width": 85,
+              "height": 110,
+              "notes": "Flat size before folding to 85 x 55 mm. Set the fold line at the centre."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flyer",
+      "name": "Flyer & Leaflet",
+      "aliases": [
+        "leaflet",
+        "handout"
+      ],
+      "categories": [
+        {
+          "id": "flyers",
+          "name": "Flyers",
+          "formats": [
+            {
+              "id": "print-flyer-a4",
+              "name": "Flyer — A4",
+              "width": 210,
+              "height": 297,
+              "notes": "The standard full-page flyer. 2480 x 3508 px at 300 DPI."
+            },
+            {
+              "id": "print-flyer-a5",
+              "name": "Flyer — A5",
+              "width": 148,
+              "height": 210,
+              "notes": "The most common handout flyer. 1748 x 2480 px at 300 DPI."
+            },
+            {
+              "id": "print-flyer-a6",
+              "name": "Flyer — A6",
+              "width": 105,
+              "height": 148,
+              "notes": "Postcard-sized flyer, cheap to print in volume."
+            },
+            {
+              "id": "print-flyer-dl",
+              "name": "Flyer — DL",
+              "aliases": [
+                "dl",
+                "compliments slip",
+                "1/3 a4"
+              ],
+              "width": 99,
+              "height": 210,
+              "notes": "One third of an A4 sheet — designed to fit a DL envelope."
+            },
+            {
+              "id": "print-flyer-square",
+              "name": "Flyer — Square",
+              "width": 148,
+              "height": 148,
+              "notes": "A square flyer trimmed from A5 stock."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "brochure",
+      "name": "Brochure",
+      "aliases": [
+        "booklet",
+        "folder"
+      ],
+      "categories": [
+        {
+          "id": "folded",
+          "name": "Folded Brochures",
+          "formats": [
+            {
+              "id": "print-brochure-trifold-a4",
+              "name": "Tri-Fold — A4 (flat)",
+              "aliases": [
+                "trifold"
+              ],
+              "width": 297,
+              "height": 210,
+              "margin": 10,
+              "notes": "Flat A4 landscape sheet folded into three 99 mm panels. The inward-folding panel should be about 2 mm narrower so it does not buckle."
+            },
+            {
+              "id": "print-brochure-trifold-panel",
+              "name": "Tri-Fold Panel",
+              "width": 99,
+              "height": 210,
+              "notes": "One panel of an A4 tri-fold. Keep content 8–10 mm away from every fold."
+            },
+            {
+              "id": "print-brochure-bifold-a4",
+              "name": "Bi-Fold — A4 (flat)",
+              "aliases": [
+                "half fold"
+              ],
+              "width": 420,
+              "height": 297,
+              "margin": 12,
+              "notes": "Flat A3 landscape sheet folded once to A4 portrait."
+            },
+            {
+              "id": "print-brochure-zfold-a4",
+              "name": "Z-Fold — A4 (flat)",
+              "width": 297,
+              "height": 210,
+              "margin": 10,
+              "notes": "Concertina fold — all three panels are the same width because none folds inside another."
+            },
+            {
+              "id": "print-brochure-square",
+              "name": "Square Brochure (flat)",
+              "width": 420,
+              "height": 210,
+              "notes": "Folds to a 210 x 210 mm square."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "poster",
+      "name": "Poster",
+      "categories": [
+        {
+          "id": "posters",
+          "name": "Posters",
+          "defaults": {
+            "bleed": 5,
+            "margin": 15
+          },
+          "formats": [
+            {
+              "id": "print-poster-a3",
+              "name": "Poster — A3",
+              "width": 297,
+              "height": 420,
+              "notes": "Indoor poster size. 3508 x 4961 px at 300 DPI."
+            },
+            {
+              "id": "print-poster-a2",
+              "name": "Poster — A2",
+              "width": 420,
+              "height": 594,
+              "notes": "A common shop and event poster. 150 DPI is usually enough at this size."
+            },
+            {
+              "id": "print-poster-a1",
+              "name": "Poster — A1",
+              "width": 594,
+              "height": 841,
+              "dpi": 150,
+              "notes": "Large format. Design at 150 DPI to keep the file workable."
+            },
+            {
+              "id": "print-poster-a0",
+              "name": "Poster — A0",
+              "width": 841,
+              "height": 1189,
+              "dpi": 150,
+              "notes": "Conference and billboard-style poster. 150 DPI is standard for this size."
+            },
+            {
+              "id": "print-poster-18x24",
+              "name": "Poster — 18 x 24 in",
+              "aliases": [
+                "18x24"
+              ],
+              "width": 457.2,
+              "height": 609.6,
+              "notes": "A standard US poster size."
+            },
+            {
+              "id": "print-poster-24x36",
+              "name": "Poster — 24 x 36 in",
+              "aliases": [
+                "24x36",
+                "movie poster"
+              ],
+              "width": 609.6,
+              "height": 914.4,
+              "dpi": 150,
+              "notes": "The classic US one-sheet poster size."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "envelope",
+      "name": "Envelope",
+      "categories": [
+        {
+          "id": "envelopes",
+          "name": "Envelopes",
+          "defaults": {
+            "bleed": 3,
+            "margin": 8
+          },
+          "formats": [
+            {
+              "id": "print-envelope-dl",
+              "name": "DL Envelope",
+              "aliases": [
+                "dl"
+              ],
+              "width": 220,
+              "height": 110,
+              "notes": "Holds an A4 sheet folded into three. The most common business envelope."
+            },
+            {
+              "id": "print-envelope-c4",
+              "name": "C4 Envelope",
+              "width": 229,
+              "height": 324,
+              "notes": "Holds an unfolded A4 sheet."
+            },
+            {
+              "id": "print-envelope-c5",
+              "name": "C5 Envelope",
+              "width": 162,
+              "height": 229,
+              "notes": "Holds an A4 sheet folded once."
+            },
+            {
+              "id": "print-envelope-c6",
+              "name": "C6 Envelope",
+              "width": 114,
+              "height": 162,
+              "notes": "Holds an A4 sheet folded twice, or an A6 card."
+            },
+            {
+              "id": "print-envelope-us-10",
+              "name": "US #10 Envelope",
+              "aliases": [
+                "no 10",
+                "#10"
+              ],
+              "width": 241.3,
+              "height": 104.8,
+              "notes": "9.5 x 4.125 in — the standard US business envelope."
+            },
+            {
+              "id": "print-envelope-a7",
+              "name": "US A7 Envelope",
+              "keywords": [
+                "invitation envelope"
+              ],
+              "width": 133.35,
+              "height": 184.15,
+              "notes": "5.25 x 7.25 in — holds a 5 x 7 in invitation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stationery",
+      "name": "Stationery",
+      "aliases": [
+        "letterhead",
+        "invitation",
+        "certificate"
+      ],
+      "categories": [
+        {
+          "id": "stationery",
+          "name": "Stationery",
+          "formats": [
+            {
+              "id": "print-letterhead-a4",
+              "name": "Letterhead — A4",
+              "width": 210,
+              "height": 297,
+              "margin": 20,
+              "notes": "Keep a generous margin: printers rarely print to the edge on office paper, and the text block needs room."
+            },
+            {
+              "id": "print-letterhead-us",
+              "name": "Letterhead — US Letter",
+              "width": 215.9,
+              "height": 279.4,
+              "margin": 20,
+              "notes": "8.5 x 11 in with a 20 mm text margin."
+            },
+            {
+              "id": "print-compliments-slip",
+              "name": "Compliments Slip — DL",
+              "width": 210,
+              "height": 99,
+              "notes": "One third of an A4 sheet, landscape."
+            },
+            {
+              "id": "print-invitation-5x7",
+              "name": "Invitation — 5 x 7 in",
+              "aliases": [
+                "5x7"
+              ],
+              "width": 127,
+              "height": 177.8,
+              "notes": "The most common wedding and event invitation size. Fits an A7 envelope."
+            },
+            {
+              "id": "print-invitation-a5",
+              "name": "Invitation — A5",
+              "width": 148,
+              "height": 210,
+              "notes": "Fits a C5 envelope."
+            },
+            {
+              "id": "print-invitation-a6",
+              "name": "Invitation — A6",
+              "width": 105,
+              "height": 148,
+              "notes": "Fits a C6 envelope."
+            },
+            {
+              "id": "print-certificate-a4",
+              "name": "Certificate — A4 Landscape",
+              "width": 297,
+              "height": 210,
+              "margin": 20,
+              "notes": "Landscape A4 with a wide margin for the border and seal."
+            },
+            {
+              "id": "print-certificate-us",
+              "name": "Certificate — US Letter Landscape",
+              "width": 279.4,
+              "height": 215.9,
+              "margin": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "book-magazine",
+      "name": "Book & Magazine",
+      "aliases": [
+        "publication"
+      ],
+      "categories": [
+        {
+          "id": "books",
+          "name": "Books",
+          "defaults": {
+            "margin": 15
+          },
+          "formats": [
+            {
+              "id": "print-book-a5",
+              "name": "Book — A5",
+              "width": 148,
+              "height": 210,
+              "notes": "A common paperback size outside the US."
+            },
+            {
+              "id": "print-book-us-trade",
+              "name": "Book — US Trade (6 x 9 in)",
+              "aliases": [
+                "6x9"
+              ],
+              "width": 152.4,
+              "height": 228.6,
+              "notes": "The default trade paperback size for most self-publishing platforms."
+            },
+            {
+              "id": "print-book-digest",
+              "name": "Book — Digest (5.5 x 8.5 in)",
+              "width": 139.7,
+              "height": 215.9
+            },
+            {
+              "id": "print-book-square",
+              "name": "Book — Square (210 x 210 mm)",
+              "width": 210,
+              "height": 210,
+              "notes": "Popular for children's books and photo books."
+            }
+          ]
+        },
+        {
+          "id": "magazines",
+          "name": "Magazines",
+          "defaults": {
+            "margin": 12
+          },
+          "formats": [
+            {
+              "id": "print-magazine-a4",
+              "name": "Magazine — A4",
+              "width": 210,
+              "height": 297,
+              "notes": "The standard magazine page."
+            },
+            {
+              "id": "print-magazine-us",
+              "name": "Magazine — US (8.5 x 11 in)",
+              "width": 215.9,
+              "height": 279.4
+            },
+            {
+              "id": "print-magazine-spread-a4",
+              "name": "Magazine Spread — A4",
+              "keywords": [
+                "double page",
+                "dps"
+              ],
+              "width": 420,
+              "height": 297,
+              "margin": 15,
+              "notes": "Two A4 pages. Keep important content away from the centre gutter."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "banner-signage",
+      "name": "Banner & Signage",
+      "aliases": [
+        "roll up",
+        "signage",
+        "display"
+      ],
+      "categories": [
+        {
+          "id": "banners",
+          "name": "Banners",
+          "defaults": {
+            "dpi": 150,
+            "bleed": 10,
+            "margin": 30
+          },
+          "formats": [
+            {
+              "id": "print-rollup-850",
+              "name": "Roll-Up Banner — 850 x 2000 mm",
+              "aliases": [
+                "pull up banner",
+                "retractable banner"
+              ],
+              "width": 850,
+              "height": 2000,
+              "safe_zone": {
+                "top": 60,
+                "right": 40,
+                "bottom": 250,
+                "left": 40
+              },
+              "notes": "The bottom 200–250 mm disappears into the cassette — keep logos and copy above it."
+            },
+            {
+              "id": "print-rollup-1000",
+              "name": "Roll-Up Banner — 1000 x 2000 mm",
+              "width": 1000,
+              "height": 2000,
+              "safe_zone": {
+                "top": 60,
+                "right": 40,
+                "bottom": 250,
+                "left": 40
+              }
+            },
+            {
+              "id": "print-pvc-banner-3x1",
+              "name": "PVC Banner — 3000 x 1000 mm",
+              "width": 3000,
+              "height": 1000,
+              "dpi": 100,
+              "safe_zone": 80,
+              "notes": "Large outdoor banner. 100 DPI is enough at viewing distance; keep content clear of the eyelet edge."
+            },
+            {
+              "id": "print-a-board",
+              "name": "A-Board Insert — A1",
+              "width": 594,
+              "height": 841,
+              "notes": "Pavement sign insert, usually A1."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cards-labels",
+      "name": "Cards, Stickers & Labels",
+      "categories": [
+        {
+          "id": "cards",
+          "name": "Cards & Postcards",
+          "formats": [
+            {
+              "id": "print-postcard-a6",
+              "name": "Postcard — A6",
+              "width": 148,
+              "height": 105,
+              "notes": "The standard postcard, landscape."
+            },
+            {
+              "id": "print-postcard-us",
+              "name": "Postcard — 6 x 4 in",
+              "aliases": [
+                "6x4"
+              ],
+              "width": 152.4,
+              "height": 101.6
+            },
+            {
+              "id": "print-greeting-card-a5",
+              "name": "Greeting Card — A5 (flat A4)",
+              "width": 297,
+              "height": 210,
+              "notes": "Flat A4 landscape folded once to A5 portrait."
+            },
+            {
+              "id": "print-loyalty-card",
+              "name": "Loyalty Card",
+              "width": 85,
+              "height": 55,
+              "notes": "Same size as a business card."
+            }
+          ]
+        },
+        {
+          "id": "labels",
+          "name": "Stickers & Labels",
+          "defaults": {
+            "bleed": 3,
+            "margin": 4
+          },
+          "formats": [
+            {
+              "id": "print-sticker-square",
+              "name": "Sticker — Square 50 mm",
+              "width": 50,
+              "height": 50,
+              "safe_zone": 4
+            },
+            {
+              "id": "print-sticker-round",
+              "name": "Sticker — Round 50 mm",
+              "width": 50,
+              "height": 50,
+              "safe_zone": 5,
+              "notes": "Round stickers are trimmed on a curve — keep everything inside the safe circle."
+            },
+            {
+              "id": "print-label-address",
+              "name": "Address Label — 99.1 x 38.1 mm",
+              "aliases": [
+                "l7173",
+                "14 per sheet"
+              ],
+              "width": 99.1,
+              "height": 38.1,
+              "notes": "Fits the common 14-per-A4-sheet label layout."
+            },
+            {
+              "id": "print-label-product",
+              "name": "Product Label — 63.5 x 38.1 mm",
+              "aliases": [
+                "21 per sheet"
+              ],
+              "width": 63.5,
+              "height": 38.1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "menu-presentation",
+      "name": "Menu & Presentation",
+      "categories": [
+        {
+          "id": "menus",
+          "name": "Menus",
+          "defaults": {
+            "margin": 12
+          },
+          "formats": [
+            {
+              "id": "print-menu-a4",
+              "name": "Menu — A4",
+              "width": 210,
+              "height": 297
+            },
+            {
+              "id": "print-menu-a3-folded",
+              "name": "Menu — A3 Folded",
+              "width": 420,
+              "height": 297,
+              "notes": "Flat A3 landscape folded once to A4 portrait."
+            },
+            {
+              "id": "print-menu-dl",
+              "name": "Menu — DL",
+              "width": 99,
+              "height": 210,
+              "notes": "Narrow table menu or drinks list."
+            },
+            {
+              "id": "print-table-tent",
+              "name": "Table Tent — A5",
+              "width": 148,
+              "height": 210,
+              "notes": "Printed double sided and folded into a triangle."
+            }
+          ]
+        },
+        {
+          "id": "presentation",
+          "name": "Presentation",
+          "defaults": {
+            "unit": "px",
+            "dpi": 96,
+            "bleed": 0,
+            "margin": 60,
+            "source": {
+              "type": "common-practice",
+              "name": "Standard presentation canvas",
+              "url": "",
+              "checked_date": "2026-08-29"
+            }
+          },
+          "formats": [
+            {
+              "id": "print-slide-16-9",
+              "name": "Slide — 16:9",
+              "aliases": [
+                "widescreen slide",
+                "powerpoint",
+                "keynote"
+              ],
+              "width": 1920,
+              "height": 1080,
+              "aspect_ratio": "16:9",
+              "safe_zone": 80,
+              "notes": "The default widescreen slide. Export at 1920 x 1080 px for screens, or set the document to 338 x 190 mm for print."
+            },
+            {
+              "id": "print-slide-4-3",
+              "name": "Slide — 4:3",
+              "aliases": [
+                "standard slide"
+              ],
+              "width": 1024,
+              "height": 768,
+              "aspect_ratio": "4:3",
+              "safe_zone": 60,
+              "notes": "The older projector ratio, still used on some conference systems."
+            },
+            {
+              "id": "print-slide-a4-landscape",
+              "name": "Slide — A4 Landscape (print handout)",
+              "width": 297,
+              "height": 210,
+              "unit": "mm",
+              "dpi": 300,
+              "margin": 15,
+              "notes": "For decks that will be printed as handouts rather than projected."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

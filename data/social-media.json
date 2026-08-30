@@ -1,0 +1,1553 @@
+{
+  "schema_version": 1,
+  "id": "social-media",
+  "section": "digital",
+  "name": "Social Media",
+  "order": 10,
+  "defaults": {
+    "unit": "px",
+    "dpi": 72,
+    "bleed": 0,
+    "file_formats": [
+      "JPG",
+      "PNG"
+    ],
+    "source": {
+      "type": "common-practice",
+      "name": "Widely published platform specification",
+      "url": "",
+      "checked_date": "2026-08-29"
+    },
+    "last_updated": "2026-08"
+  },
+  "platforms": [
+    {
+      "id": "facebook",
+      "name": "Facebook",
+      "aliases": [
+        "fb",
+        "meta"
+      ],
+      "color": "#1877f2",
+      "categories": [
+        {
+          "id": "profile",
+          "name": "Profile & Pages",
+          "formats": [
+            {
+              "id": "facebook-profile-picture",
+              "name": "Profile Picture",
+              "aliases": [
+                "fb dp",
+                "profile photo"
+              ],
+              "keywords": [
+                "avatar",
+                "circle"
+              ],
+              "width": 320,
+              "height": 320,
+              "safe_zone": 40,
+              "minimum": {
+                "width": 180,
+                "height": 180
+              },
+              "orientation": "square",
+              "notes": "Uploaded as a square and cropped to a circle in most placements. Keep faces and logos inside the centre circle."
+            },
+            {
+              "id": "facebook-cover-photo",
+              "name": "Cover Photo",
+              "aliases": [
+                "fb cover",
+                "banner"
+              ],
+              "keywords": [
+                "header"
+              ],
+              "width": 851,
+              "height": 315,
+              "safe_zone": {
+                "top": 24,
+                "right": 130,
+                "bottom": 60,
+                "left": 130
+              },
+              "minimum": {
+                "width": 400,
+                "height": 150
+              },
+              "notes": "Crops differently on desktop and mobile. Mobile shows a narrower centre strip, so keep text away from the left and right edges."
+            },
+            {
+              "id": "facebook-page-cover",
+              "name": "Page Cover",
+              "keywords": [
+                "business page"
+              ],
+              "width": 1640,
+              "height": 856,
+              "safe_zone": {
+                "top": 60,
+                "right": 250,
+                "bottom": 120,
+                "left": 250
+              },
+              "notes": "Upload at the larger size for sharp rendering on high-density screens."
+            },
+            {
+              "id": "facebook-group-cover",
+              "name": "Group Cover",
+              "width": 1640,
+              "height": 856,
+              "safe_zone": {
+                "top": 60,
+                "right": 200,
+                "bottom": 140,
+                "left": 200
+              },
+              "notes": "The group name and action buttons overlay the lower part of the image."
+            },
+            {
+              "id": "facebook-event-cover",
+              "name": "Event Cover",
+              "width": 1920,
+              "height": 1005,
+              "aspect_ratio": "1.91:1",
+              "safe_zone": {
+                "top": 60,
+                "right": 120,
+                "bottom": 160,
+                "left": 120
+              }
+            }
+          ]
+        },
+        {
+          "id": "posts",
+          "name": "Posts",
+          "formats": [
+            {
+              "id": "facebook-post-square",
+              "name": "Square Post",
+              "aliases": [
+                "1:1 post"
+              ],
+              "width": 1080,
+              "height": 1080,
+              "safe_zone": 60,
+              "max_file_size": "30 MB"
+            },
+            {
+              "id": "facebook-post-landscape",
+              "name": "Landscape Post",
+              "aliases": [
+                "link image",
+                "shared link"
+              ],
+              "keywords": [
+                "open graph",
+                "og image"
+              ],
+              "width": 1200,
+              "height": 630,
+              "aspect_ratio": "1.91:1",
+              "safe_zone": 60,
+              "notes": "Also the standard size for the link preview image pulled from an og:image tag."
+            },
+            {
+              "id": "facebook-post-portrait",
+              "name": "Portrait Post",
+              "aliases": [
+                "4:5 post"
+              ],
+              "width": 1080,
+              "height": 1350,
+              "safe_zone": 60,
+              "notes": "Taller posts take up more of the feed on mobile."
+            }
+          ]
+        },
+        {
+          "id": "stories",
+          "name": "Stories & Reels",
+          "defaults": {
+            "safe_zone": {
+              "top": 250,
+              "right": 100,
+              "bottom": 320,
+              "left": 100
+            },
+            "file_formats": [
+              "JPG",
+              "PNG",
+              "MP4"
+            ]
+          },
+          "formats": [
+            {
+              "id": "facebook-story",
+              "name": "Story",
+              "aliases": [
+                "fb story"
+              ],
+              "keywords": [
+                "vertical",
+                "full screen"
+              ],
+              "width": 1080,
+              "height": 1920,
+              "aspect_ratio": "9:16",
+              "notes": "The top strip holds the profile row and the bottom strip holds the reply bar — keep headlines and calls to action inside the safe zone."
+            },
+            {
+              "id": "facebook-reel",
+              "name": "Reel",
+              "width": 1080,
+              "height": 1920,
+              "aspect_ratio": "9:16",
+              "safe_zone": {
+                "top": 250,
+                "right": 180,
+                "bottom": 480,
+                "left": 100
+              },
+              "notes": "The right rail of action buttons and the caption block cover a large part of the frame."
+            },
+            {
+              "id": "facebook-reel-cover",
+              "name": "Reel Cover",
+              "width": 1080,
+              "height": 1920,
+              "aspect_ratio": "9:16",
+              "safe_zone": {
+                "top": 250,
+                "right": 100,
+                "bottom": 320,
+                "left": 100
+              },
+              "notes": "A 1:1 centre crop of the cover is used in the profile grid."
+            }
+          ]
+        },
+        {
+          "id": "ads",
+          "name": "Ads",
+          "formats": [
+            {
+              "id": "facebook-ad-square",
+              "name": "Feed Ad — Square",
+              "width": 1080,
+              "height": 1080,
+              "safe_zone": 100,
+              "notes": "Keep overlaid text light; heavy text can reduce delivery."
+            },
+            {
+              "id": "facebook-ad-landscape",
+              "name": "Feed Ad — Landscape",
+              "width": 1200,
+              "height": 628,
+              "aspect_ratio": "1.91:1",
+              "safe_zone": 60
+            },
+            {
+              "id": "facebook-ad-story",
+              "name": "Story Ad",
+              "width": 1080,
+              "height": 1920,
+              "aspect_ratio": "9:16",
+              "safe_zone": {
+                "top": 250,
+                "right": 100,
+                "bottom": 340,
+                "left": 100
+              }
+            },
+            {
+              "id": "facebook-ad-carousel",
+              "name": "Carousel Ad",
+              "width": 1080,
+              "height": 1080,
+              "safe_zone": 80,
+              "notes": "Every card in a carousel must share the same aspect ratio."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "instagram",
+      "name": "Instagram",
+      "aliases": [
+        "ig",
+        "insta"
+      ],
+      "color": "#e1306c",
+      "categories": [
+        {
+          "id": "profile",
+          "name": "Profile",
+          "formats": [
+            {
+              "id": "instagram-profile-picture",
+              "name": "Profile Picture",
+              "aliases": [
+                "ig pfp",
+                "ig dp"
+              ],
+              "width": 320,
+              "height": 320,
+              "safe_zone": 40,
+              "minimum": {
+                "width": 110,
+                "height": 110
+              },
+              "notes": "Displayed as a circle. Keep the subject centred."
+            }
+          ]
+        },
+        {
+          "id": "posts",
+          "name": "Posts",
+          "defaults": {
+            "max_file_size": "30 MB"
+          },
+          "formats": [
+            {
+              "id": "instagram-post-square",
+              "name": "Square Post",
+              "aliases": [
+                "1:1 post"
+              ],
+              "width": 1080,
+              "height": 1080,
+              "safe_zone": 60
+            },
+            {
+              "id": "instagram-post-portrait",
+              "name": "Portrait Post",
+              "aliases": [
+                "4:5 post",
+                "vertical post"
+              ],
+              "keywords": [
+                "feed",
+                "tallest feed post"
+              ],
+              "width": 1080,
+              "height": 1350,
+              "aspect_ratio": "4:5",
+              "safe_zone": 60,
+              "notes": "The tallest ratio the feed accepts, so it claims the most screen height."
+            },
+            {
+              "id": "instagram-post-landscape",
+              "name": "Landscape Post",
+              "aliases": [
+                "1.91:1 post"
+              ],
+              "width": 1080,
+              "height": 566,
+              "aspect_ratio": "1.91:1",
+              "safe_zone": 50
+            },
+            {
+              "id": "instagram-carousel",
+              "name": "Carousel Slide",
+              "keywords": [
+                "swipe",
+                "album"
+              ],
+              "width": 1080,
+              "height": 1350,
+              "aspect_ratio": "4:5",
+              "safe_zone": 60,
+              "notes": "All slides share the ratio of the first one, so design the set at a single size."
+            },
+            {
+              "id": "instagram-profile-grid",
+              "name": "Profile Grid Thumbnail",
+              "keywords": [
+                "grid crop"
+              ],
+              "width": 1080,
+              "height": 1350,
+              "aspect_ratio": "4:5",
+              "safe_zone": {
+                "top": 170,
+                "right": 60,
+                "bottom": 170,
+                "left": 60
+              },
+              "notes": "The grid shows a centre crop of a portrait post — keep key elements inside the middle band."
+            }
+          ]
+        },
+        {
+          "id": "stories",
+          "name": "Stories & Reels",
+          "defaults": {
+            "aspect_ratio": "9:16",
+            "file_formats": [
+              "JPG",
+              "PNG",
+              "MP4"
+            ]
+          },
+          "formats": [
+            {
+              "id": "instagram-story",
+              "name": "Story",
+              "aliases": [
+                "ig story"
+              ],
+              "width": 1080,
+              "height": 1920,
+              "safe_zone": {
+                "top": 250,
+                "right": 100,
+                "bottom": 250,
+                "left": 100
+              },
+              "notes": "The profile row sits at the top and the reply bar at the bottom."
+            },
+            {
+              "id": "instagram-reel",
+              "name": "Reel",
+              "width": 1080,
+              "height": 1920,
+              "safe_zone": {
+                "top": 220,
+                "right": 180,
+                "bottom": 480,
+                "left": 100
+              },
+              "notes": "The caption, audio strip and action buttons overlay the lower and right edges."
+            },
+            {
+              "id": "instagram-reel-cover",
+              "name": "Reel Cover",
+              "width": 1080,
+              "height": 1920,
+              "safe_zone": {
+                "top": 250,
+                "right": 100,
+                "bottom": 500,
+                "left": 100
+              },
+              "notes": "A centre square is used for the profile grid, so keep the title in the middle."
+            }
+          ]
+        },
+        {
+          "id": "ads",
+          "name": "Ads",
+          "formats": [
+            {
+              "id": "instagram-ad-square",
+              "name": "Feed Ad — Square",
+              "width": 1080,
+              "height": 1080,
+              "safe_zone": 80
+            },
+            {
+              "id": "instagram-ad-portrait",
+              "name": "Feed Ad — Portrait",
+              "width": 1080,
+              "height": 1350,
+              "aspect_ratio": "4:5",
+              "safe_zone": 80
+            },
+            {
+              "id": "instagram-ad-story",
+              "name": "Story Ad",
+              "width": 1080,
+              "height": 1920,
+              "aspect_ratio": "9:16",
+              "safe_zone": {
+                "top": 250,
+                "right": 100,
+                "bottom": 340,
+                "left": 100
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "linkedin",
+      "name": "LinkedIn",
+      "aliases": [
+        "li"
+      ],
+      "color": "#0a66c2",
+      "categories": [
+        {
+          "id": "profile",
+          "name": "Profile & Company",
+          "formats": [
+            {
+              "id": "linkedin-profile-picture",
+              "name": "Profile Picture",
+              "width": 400,
+              "height": 400,
+              "safe_zone": 40,
+              "minimum": {
+                "width": 268,
+                "height": 268
+              },
+              "maximum": {
+                "width": 7680,
+                "height": 4320
+              },
+              "max_file_size": "8 MB",
+              "notes": "Displayed as a circle across the site."
+            },
+            {
+              "id": "linkedin-background-banner",
+              "name": "Profile Background Banner",
+              "aliases": [
+                "li banner",
+                "cover"
+              ],
+              "width": 1584,
+              "height": 396,
+              "aspect_ratio": "4:1",
+              "safe_zone": {
+                "top": 40,
+                "right": 60,
+                "bottom": 130,
+                "left": 400
+              },
+              "max_file_size": "8 MB",
+              "notes": "The profile photo overlaps the lower left corner and the card crops the bottom on mobile."
+            },
+            {
+              "id": "linkedin-company-logo",
+              "name": "Company Logo",
+              "width": 300,
+              "height": 300,
+              "safe_zone": 30,
+              "notes": "Square logo shown on the company page and in feed posts."
+            },
+            {
+              "id": "linkedin-company-cover",
+              "name": "Company Page Cover",
+              "width": 1128,
+              "height": 191,
+              "aspect_ratio": "5.9:1",
+              "safe_zone": {
+                "top": 20,
+                "right": 40,
+                "bottom": 20,
+                "left": 300
+              },
+              "notes": "A very wide strip — treat it as a texture rather than a place for long copy."
+            }
+          ]
+        },
+        {
+          "id": "posts",
+          "name": "Posts",
+          "formats": [
+            {
+              "id": "linkedin-post-landscape",
+              "name": "Landscape Post",
+              "aliases": [
+                "link share"
+              ],
+              "width": 1200,
+              "height": 627,
+              "aspect_ratio": "1.91:1",
+              "safe_zone": 60
+            },
+            {
+              "id": "linkedin-post-square",
+              "name": "Square Post",
+              "width": 1200,
+              "height": 1200,
+              "safe_zone": 80
+            },
+            {
+              "id": "linkedin-post-portrait",
+              "name": "Portrait Post",
+              "width": 1080,
+              "height": 1350,
+              "aspect_ratio": "4:5",
+              "safe_zone": 60
+            },
+            {
+              "id": "linkedin-article-cover",
+              "name": "Article Cover",
+              "keywords": [
+                "newsletter",
+                "publishing"
+              ],
+              "width": 1200,
+              "height": 644,
+              "safe_zone": 60
+            },
+            {
+              "id": "linkedin-document-post",
+              "name": "Document Post Page",
+              "aliases": [
+                "carousel pdf"
+              ],
+              "keywords": [
+                "slides",
+                "pdf carousel"
+              ],
+              "width": 1080,
+              "height": 1350,
+              "aspect_ratio": "4:5",
+              "safe_zone": 80,
+              "file_formats": [
+                "PDF"
+              ],
+              "notes": "Uploaded as a multi-page PDF; every page should use the same ratio."
+            }
+          ]
+        },
+        {
+          "id": "ads",
+          "name": "Ads",
+          "formats": [
+            {
+              "id": "linkedin-sponsored-content",
+              "name": "Sponsored Content",
+              "width": 1200,
+              "height": 627,
+              "aspect_ratio": "1.91:1",
+              "safe_zone": 60
+            },
+            {
+              "id": "linkedin-story-ad",
+              "name": "Vertical Ad",
+              "width": 1080,
+              "height": 1920,
+              "aspect_ratio": "9:16",
+              "safe_zone": {
+                "top": 250,
+                "right": 100,
+                "bottom": 340,
+                "left": 100
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "twitter",
+      "name": "X (Twitter)",
+      "aliases": [
+        "x",
+        "twitter",
+        "tweet"
+      ],
+      "color": "#111827",
+      "categories": [
+        {
+          "id": "profile",
+          "name": "Profile",
+          "formats": [
+            {
+              "id": "twitter-profile-picture",
+              "name": "Profile Picture",
+              "width": 400,
+              "height": 400,
+              "safe_zone": 40,
+              "max_file_size": "2 MB",
+              "notes": "Cropped to a circle."
+            },
+            {
+              "id": "twitter-header",
+              "name": "Header / Banner",
+              "aliases": [
+                "cover"
+              ],
+              "width": 1500,
+              "height": 500,
+              "aspect_ratio": "3:1",
+              "safe_zone": {
+                "top": 40,
+                "right": 60,
+                "bottom": 120,
+                "left": 240
+              },
+              "max_file_size": "5 MB",
+              "notes": "The avatar overlaps the lower left and the header crops on narrow screens."
+            }
+          ]
+        },
+        {
+          "id": "posts",
+          "name": "Posts",
+          "formats": [
+            {
+              "id": "twitter-post-landscape",
+              "name": "Landscape Post",
+              "aliases": [
+                "tweet image"
+              ],
+              "width": 1600,
+              "height": 900,
+              "aspect_ratio": "16:9",
+              "safe_zone": 60
+            },
+            {
+              "id": "twitter-post-square",
+              "name": "Square Post",
+              "width": 1080,
+              "height": 1080,
+              "safe_zone": 60
+            },
+            {
+              "id": "twitter-post-portrait",
+              "name": "Portrait Post",
+              "width": 1080,
+              "height": 1350,
+              "aspect_ratio": "4:5",
+              "safe_zone": 60,
+              "notes": "The timeline preview crops taller images, so keep the message near the centre."
+            },
+            {
+              "id": "twitter-summary-card",
+              "name": "Summary Card — Large Image",
+              "keywords": [
+                "twitter card",
+                "link preview",
+                "og image"
+              ],
+              "width": 1200,
+              "height": 628,
+              "aspect_ratio": "1.91:1",
+              "safe_zone": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pinterest",
+      "name": "Pinterest",
+      "aliases": [
+        "pin"
+      ],
+      "color": "#e60023",
+      "categories": [
+        {
+          "id": "profile",
+          "name": "Profile",
+          "formats": [
+            {
+              "id": "pinterest-profile-picture",
+              "name": "Profile Picture",
+              "width": 400,
+              "height": 400,
+              "safe_zone": 40
+            },
+            {
+              "id": "pinterest-board-cover",
+              "name": "Board Cover",
+              "width": 600,
+              "height": 600,
+              "safe_zone": 60
+            }
+          ]
+        },
+        {
+          "id": "pins",
+          "name": "Pins",
+          "formats": [
+            {
+              "id": "pinterest-standard-pin",
+              "name": "Standard Pin",
+              "aliases": [
+                "2:3 pin"
+              ],
+              "keywords": [
+                "vertical"
+              ],
+              "width": 1000,
+              "height": 1500,
+              "aspect_ratio": "2:3",
+              "safe_zone": 60,
+              "notes": "The 2:3 ratio is the ratio the feed is built around; taller pins get truncated."
+            },
+            {
+              "id": "pinterest-square-pin",
+              "name": "Square Pin",
+              "width": 1000,
+              "height": 1000,
+              "safe_zone": 60
+            },
+            {
+              "id": "pinterest-long-pin",
+              "name": "Long Pin",
+              "width": 1000,
+              "height": 2100,
+              "safe_zone": 60,
+              "notes": "Long infographic pins are truncated in the feed and expand when opened."
+            },
+            {
+              "id": "pinterest-idea-pin",
+              "name": "Idea Pin",
+              "width": 1080,
+              "height": 1920,
+              "aspect_ratio": "9:16",
+              "safe_zone": {
+                "top": 220,
+                "right": 100,
+                "bottom": 320,
+                "left": 100
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "youtube",
+      "name": "YouTube",
+      "aliases": [
+        "yt"
+      ],
+      "color": "#ff0000",
+      "categories": [
+        {
+          "id": "channel",
+          "name": "Channel",
+          "formats": [
+            {
+              "id": "youtube-profile-picture",
+              "name": "Channel Picture",
+              "aliases": [
+                "yt pfp",
+                "channel icon"
+              ],
+              "width": 800,
+              "height": 800,
+              "safe_zone": 80,
+              "max_file_size": "4 MB",
+              "notes": "Rendered as a circle at small sizes."
+            },
+            {
+              "id": "youtube-channel-banner",
+              "name": "Channel Banner",
+              "aliases": [
+                "channel art",
+                "yt banner"
+              ],
+              "width": 2560,
+              "height": 1440,
+              "aspect_ratio": "16:9",
+              "safe_zone": {
+                "top": 508,
+                "right": 507,
+                "bottom": 509,
+                "left": 507
+              },
+              "max_file_size": "6 MB",
+              "notes": "Only the central 1546 x 423 area is guaranteed to be visible on every device — keep the logo and text inside the safe zone."
+            },
+            {
+              "id": "youtube-watermark",
+              "name": "Video Watermark",
+              "keywords": [
+                "branding"
+              ],
+              "width": 150,
+              "height": 150,
+              "safe_zone": 10,
+              "file_formats": [
+                "PNG"
+              ],
+              "notes": "A transparent PNG works best; it appears in the corner of the player."
+            }
+          ]
+        },
+        {
+          "id": "video",
+          "name": "Video",
+          "formats": [
+            {
+              "id": "youtube-thumbnail",
+              "name": "Thumbnail",
+              "aliases": [
+                "yt thumbnail",
+                "video thumbnail"
+              ],
+              "keywords": [
+                "preview"
+              ],
+              "width": 1280,
+              "height": 720,
+              "aspect_ratio": "16:9",
+              "safe_zone": {
+                "top": 40,
+                "right": 40,
+                "bottom": 90,
+                "left": 40
+              },
+              "minimum": {
+                "width": 640,
+                "height": 360
+              },
+              "max_file_size": "2 MB",
+              "notes": "The duration badge sits in the lower right corner, so keep it clear."
+            },
+            {
+              "id": "youtube-video-1080p",
+              "name": "Video — 1080p",
+              "keywords": [
+                "full hd"
+              ],
+              "width": 1920,
+              "height": 1080,
+              "aspect_ratio": "16:9",
+              "safe_zone": 60,
+              "file_formats": [
+                "MP4",
+                "MOV"
+              ]
+            },
+            {
+              "id": "youtube-video-4k",
+              "name": "Video — 4K",
+              "keywords": [
+                "uhd",
+                "2160p"
+              ],
+              "width": 3840,
+              "height": 2160,
+              "aspect_ratio": "16:9",
+              "safe_zone": 120,
+              "file_formats": [
+                "MP4",
+                "MOV"
+              ]
+            },
+            {
+              "id": "youtube-shorts",
+              "name": "Shorts",
+              "keywords": [
+                "vertical video"
+              ],
+              "width": 1080,
+              "height": 1920,
+              "aspect_ratio": "9:16",
+              "safe_zone": {
+                "top": 200,
+                "right": 180,
+                "bottom": 460,
+                "left": 80
+              },
+              "file_formats": [
+                "MP4"
+              ],
+              "notes": "The title, channel row and action buttons cover the lower and right edges."
+            },
+            {
+              "id": "youtube-end-screen",
+              "name": "End Screen Area",
+              "keywords": [
+                "outro"
+              ],
+              "width": 1920,
+              "height": 1080,
+              "aspect_ratio": "16:9",
+              "safe_zone": {
+                "top": 80,
+                "right": 80,
+                "bottom": 200,
+                "left": 80
+              },
+              "notes": "End screen elements are placed inside the final 5–20 seconds; leave room for the cards."
+            }
+          ]
+        },
+        {
+          "id": "community",
+          "name": "Community",
+          "formats": [
+            {
+              "id": "youtube-community-post",
+              "name": "Community Post Image",
+              "width": 1200,
+              "height": 1200,
+              "safe_zone": 80
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tiktok",
+      "name": "TikTok",
+      "aliases": [
+        "tt"
+      ],
+      "color": "#010101",
+      "categories": [
+        {
+          "id": "profile",
+          "name": "Profile",
+          "formats": [
+            {
+              "id": "tiktok-profile-picture",
+              "name": "Profile Picture",
+              "width": 200,
+              "height": 200,
+              "safe_zone": 20,
+              "notes": "Displayed as a circle; upload larger and let TikTok downscale."
+            }
+          ]
+        },
+        {
+          "id": "video",
+          "name": "Video",
+          "defaults": {
+            "aspect_ratio": "9:16",
+            "file_formats": [
+              "MP4",
+              "MOV"
+            ]
+          },
+          "formats": [
+            {
+              "id": "tiktok-video",
+              "name": "Video",
+              "keywords": [
+                "vertical",
+                "full screen"
+              ],
+              "width": 1080,
+              "height": 1920,
+              "safe_zone": {
+                "top": 130,
+                "right": 140,
+                "bottom": 480,
+                "left": 60
+              },
+              "notes": "The caption block and the right action rail cover a large part of the frame — keep subtitles above the bottom safe line."
+            },
+            {
+              "id": "tiktok-cover",
+              "name": "Video Cover",
+              "keywords": [
+                "thumbnail"
+              ],
+              "width": 1080,
+              "height": 1920,
+              "safe_zone": {
+                "top": 130,
+                "right": 140,
+                "bottom": 480,
+                "left": 60
+              },
+              "file_formats": [
+                "JPG",
+                "PNG"
+              ],
+              "notes": "The profile grid shows a centre crop of roughly 1:1.3, so keep titles centred."
+            },
+            {
+              "id": "tiktok-ad",
+              "name": "In-Feed Ad",
+              "width": 1080,
+              "height": 1920,
+              "safe_zone": {
+                "top": 130,
+                "right": 140,
+                "bottom": 520,
+                "left": 60
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "discord",
+      "name": "Discord",
+      "color": "#5865f2",
+      "categories": [
+        {
+          "id": "profile",
+          "name": "Profile",
+          "formats": [
+            {
+              "id": "discord-avatar",
+              "name": "Avatar",
+              "width": 512,
+              "height": 512,
+              "safe_zone": 60,
+              "file_formats": [
+                "PNG",
+                "JPG",
+                "GIF"
+              ],
+              "max_file_size": "8 MB",
+              "notes": "Cropped to a circle. Animated GIF avatars require Nitro."
+            },
+            {
+              "id": "discord-profile-banner",
+              "name": "Profile Banner",
+              "width": 680,
+              "height": 240,
+              "aspect_ratio": "17:6",
+              "safe_zone": {
+                "top": 20,
+                "right": 30,
+                "bottom": 60,
+                "left": 120
+              },
+              "notes": "The avatar overlaps the lower left corner."
+            }
+          ]
+        },
+        {
+          "id": "server",
+          "name": "Server",
+          "formats": [
+            {
+              "id": "discord-server-icon",
+              "name": "Server Icon",
+              "width": 512,
+              "height": 512,
+              "safe_zone": 70,
+              "notes": "Shown as a small circle in the server rail, so use a bold simple mark."
+            },
+            {
+              "id": "discord-server-banner",
+              "name": "Server Banner",
+              "width": 960,
+              "height": 540,
+              "aspect_ratio": "16:9",
+              "safe_zone": {
+                "top": 40,
+                "right": 60,
+                "bottom": 140,
+                "left": 60
+              }
+            },
+            {
+              "id": "discord-invite-splash",
+              "name": "Invite Splash",
+              "width": 1920,
+              "height": 1080,
+              "aspect_ratio": "16:9",
+              "safe_zone": 120
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "threads",
+      "name": "Threads",
+      "color": "#000000",
+      "categories": [
+        {
+          "id": "profile",
+          "name": "Profile",
+          "formats": [
+            {
+              "id": "threads-profile-picture",
+              "name": "Profile Picture",
+              "width": 400,
+              "height": 400,
+              "safe_zone": 40
+            }
+          ]
+        },
+        {
+          "id": "posts",
+          "name": "Posts",
+          "formats": [
+            {
+              "id": "threads-post-square",
+              "name": "Square Post",
+              "width": 1080,
+              "height": 1080,
+              "safe_zone": 60
+            },
+            {
+              "id": "threads-post-portrait",
+              "name": "Portrait Post",
+              "width": 1080,
+              "height": 1350,
+              "aspect_ratio": "4:5",
+              "safe_zone": 60
+            },
+            {
+              "id": "threads-post-landscape",
+              "name": "Landscape Post",
+              "width": 1080,
+              "height": 566,
+              "aspect_ratio": "1.91:1",
+              "safe_zone": 50
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reddit",
+      "name": "Reddit",
+      "color": "#ff4500",
+      "categories": [
+        {
+          "id": "profile",
+          "name": "Profile & Community",
+          "formats": [
+            {
+              "id": "reddit-avatar",
+              "name": "Avatar",
+              "width": 256,
+              "height": 256,
+              "safe_zone": 24,
+              "file_formats": [
+                "PNG",
+                "JPG"
+              ]
+            },
+            {
+              "id": "reddit-community-icon",
+              "name": "Community Icon",
+              "width": 256,
+              "height": 256,
+              "safe_zone": 30,
+              "notes": "Displayed as a circle at the top of the community."
+            },
+            {
+              "id": "reddit-banner",
+              "name": "Community Banner",
+              "width": 1920,
+              "height": 384,
+              "aspect_ratio": "5:1",
+              "safe_zone": {
+                "top": 40,
+                "right": 80,
+                "bottom": 60,
+                "left": 260
+              },
+              "notes": "The banner height is configurable; the widest setting crops least."
+            }
+          ]
+        },
+        {
+          "id": "posts",
+          "name": "Posts",
+          "formats": [
+            {
+              "id": "reddit-post-image",
+              "name": "Post Image",
+              "width": 1200,
+              "height": 628,
+              "aspect_ratio": "1.91:1",
+              "safe_zone": 60
+            },
+            {
+              "id": "reddit-post-square",
+              "name": "Square Post Image",
+              "width": 1080,
+              "height": 1080,
+              "safe_zone": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "snapchat",
+      "name": "Snapchat",
+      "aliases": [
+        "snap"
+      ],
+      "color": "#fffc00",
+      "categories": [
+        {
+          "id": "profile",
+          "name": "Profile",
+          "formats": [
+            {
+              "id": "snapchat-profile-picture",
+              "name": "Profile Picture",
+              "width": 320,
+              "height": 320,
+              "safe_zone": 30
+            }
+          ]
+        },
+        {
+          "id": "content",
+          "name": "Snaps & Ads",
+          "defaults": {
+            "aspect_ratio": "9:16"
+          },
+          "formats": [
+            {
+              "id": "snapchat-snap",
+              "name": "Snap / Story",
+              "width": 1080,
+              "height": 1920,
+              "safe_zone": {
+                "top": 150,
+                "right": 90,
+                "bottom": 300,
+                "left": 90
+              }
+            },
+            {
+              "id": "snapchat-ad",
+              "name": "Single Image or Video Ad",
+              "width": 1080,
+              "height": 1920,
+              "safe_zone": {
+                "top": 150,
+                "right": 90,
+                "bottom": 340,
+                "left": 90
+              },
+              "file_formats": [
+                "JPG",
+                "PNG",
+                "MP4"
+              ],
+              "notes": "Leave the bottom clear for the swipe-up call to action."
+            },
+            {
+              "id": "snapchat-geofilter",
+              "name": "Geofilter",
+              "width": 1080,
+              "height": 2340,
+              "safe_zone": {
+                "top": 300,
+                "right": 60,
+                "bottom": 400,
+                "left": 60
+              },
+              "file_formats": [
+                "PNG"
+              ],
+              "notes": "Must be a transparent PNG; keep the centre of the frame clear so the photo shows through."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "whatsapp",
+      "name": "WhatsApp",
+      "aliases": [
+        "wa"
+      ],
+      "color": "#25d366",
+      "categories": [
+        {
+          "id": "profile",
+          "name": "Profile",
+          "formats": [
+            {
+              "id": "whatsapp-profile-picture",
+              "name": "Profile Picture",
+              "width": 500,
+              "height": 500,
+              "safe_zone": 60,
+              "notes": "Shown as a circle in chat lists."
+            }
+          ]
+        },
+        {
+          "id": "content",
+          "name": "Status & Business",
+          "formats": [
+            {
+              "id": "whatsapp-status",
+              "name": "Status",
+              "width": 1080,
+              "height": 1920,
+              "aspect_ratio": "9:16",
+              "safe_zone": {
+                "top": 200,
+                "right": 90,
+                "bottom": 260,
+                "left": 90
+              }
+            },
+            {
+              "id": "whatsapp-catalog-image",
+              "name": "Business Catalogue Image",
+              "width": 1000,
+              "height": 1000,
+              "safe_zone": 80,
+              "notes": "Product images are shown square in the catalogue grid."
+            },
+            {
+              "id": "whatsapp-link-preview",
+              "name": "Link Preview Image",
+              "keywords": [
+                "og image"
+              ],
+              "width": 1200,
+              "height": 630,
+              "aspect_ratio": "1.91:1",
+              "safe_zone": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "telegram",
+      "name": "Telegram",
+      "aliases": [
+        "tg"
+      ],
+      "color": "#229ed9",
+      "categories": [
+        {
+          "id": "profile",
+          "name": "Profile & Channel",
+          "formats": [
+            {
+              "id": "telegram-profile-picture",
+              "name": "Profile / Channel Photo",
+              "width": 512,
+              "height": 512,
+              "safe_zone": 60,
+              "notes": "Cropped to a circle."
+            }
+          ]
+        },
+        {
+          "id": "content",
+          "name": "Posts & Stickers",
+          "formats": [
+            {
+              "id": "telegram-post-image",
+              "name": "Channel Post Image",
+              "width": 1280,
+              "height": 720,
+              "aspect_ratio": "16:9",
+              "safe_zone": 60
+            },
+            {
+              "id": "telegram-sticker",
+              "name": "Sticker",
+              "width": 512,
+              "height": 512,
+              "safe_zone": 16,
+              "file_formats": [
+                "PNG",
+                "WEBP"
+              ],
+              "max_file_size": "512 KB",
+              "notes": "One side must be exactly 512 px and the image needs a transparent background."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "twitch",
+      "name": "Twitch",
+      "color": "#9146ff",
+      "categories": [
+        {
+          "id": "channel",
+          "name": "Channel",
+          "formats": [
+            {
+              "id": "twitch-profile-picture",
+              "name": "Profile Picture",
+              "width": 256,
+              "height": 256,
+              "safe_zone": 24,
+              "max_file_size": "10 MB"
+            },
+            {
+              "id": "twitch-profile-banner",
+              "name": "Profile Banner",
+              "width": 1200,
+              "height": 480,
+              "aspect_ratio": "5:2",
+              "safe_zone": {
+                "top": 40,
+                "right": 60,
+                "bottom": 60,
+                "left": 200
+              },
+              "max_file_size": "10 MB"
+            },
+            {
+              "id": "twitch-offline-banner",
+              "name": "Offline Banner",
+              "aliases": [
+                "video player banner"
+              ],
+              "width": 1920,
+              "height": 1080,
+              "aspect_ratio": "16:9",
+              "safe_zone": 120,
+              "notes": "Shown in the player area when the channel is not live."
+            },
+            {
+              "id": "twitch-panel",
+              "name": "Info Panel",
+              "width": 320,
+              "height": 100,
+              "safe_zone": 10,
+              "max_file_size": "2.9 MB",
+              "notes": "Panels are fixed at 320 px wide; the height can vary."
+            }
+          ]
+        },
+        {
+          "id": "stream",
+          "name": "Stream",
+          "formats": [
+            {
+              "id": "twitch-stream-overlay",
+              "name": "Stream Overlay",
+              "keywords": [
+                "1080p",
+                "layout"
+              ],
+              "width": 1920,
+              "height": 1080,
+              "aspect_ratio": "16:9",
+              "safe_zone": 60,
+              "file_formats": [
+                "PNG"
+              ],
+              "notes": "Export as a transparent PNG so the gameplay shows through."
+            },
+            {
+              "id": "twitch-thumbnail",
+              "name": "Stream Thumbnail",
+              "width": 1280,
+              "height": 720,
+              "aspect_ratio": "16:9",
+              "safe_zone": 50
+            },
+            {
+              "id": "twitch-emote",
+              "name": "Emote",
+              "width": 112,
+              "height": 112,
+              "safe_zone": 4,
+              "file_formats": [
+                "PNG"
+              ],
+              "notes": "Upload at 112 px; Twitch generates the 56 px and 28 px versions, so keep the artwork readable when tiny."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

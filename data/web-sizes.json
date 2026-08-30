@@ -1,0 +1,213 @@
+{
+  "schema_version": 1,
+  "id": "web",
+  "section": "digital",
+  "name": "Web",
+  "order": 20,
+  "defaults": {
+    "unit": "px",
+    "dpi": 72,
+    "bleed": 0,
+    "file_formats": ["PNG", "JPG", "SVG", "WEBP"],
+    "source": {
+      "type": "common-practice",
+      "name": "Common web and design conventions",
+      "url": "",
+      "checked_date": "2026-08-29"
+    },
+    "last_updated": "2026-08"
+  },
+  "platforms": [
+    {
+      "id": "website",
+      "name": "Website",
+      "aliases": ["web", "site"],
+      "categories": [
+        {
+          "id": "layout",
+          "name": "Layout Widths",
+          "formats": [
+            {
+              "id": "web-desktop-1440",
+              "name": "Desktop Design Width",
+              "aliases": ["1440"],
+              "keywords": ["breakpoint", "artboard"],
+              "width": 1440,
+              "height": 1024,
+              "safe_zone": { "top": 0, "right": 120, "bottom": 0, "left": 120 },
+              "notes": "The usual desktop design artboard. The safe zone marks a 1200 px content container."
+            },
+            {
+              "id": "web-desktop-1920",
+              "name": "Large Desktop",
+              "width": 1920,
+              "height": 1080,
+              "safe_zone": { "top": 0, "right": 360, "bottom": 0, "left": 360 },
+              "notes": "Design the full-bleed background here but keep content inside the 1200 px container."
+            },
+            {
+              "id": "web-tablet",
+              "name": "Tablet",
+              "aliases": ["768"],
+              "width": 768,
+              "height": 1024,
+              "safe_zone": { "top": 0, "right": 32, "bottom": 0, "left": 32 }
+            },
+            {
+              "id": "web-mobile",
+              "name": "Mobile",
+              "aliases": ["375", "phone"],
+              "width": 375,
+              "height": 812,
+              "safe_zone": { "top": 44, "right": 16, "bottom": 34, "left": 16 },
+              "notes": "The safe zone allows for the status bar and the home indicator."
+            },
+            {
+              "id": "web-mobile-large",
+              "name": "Mobile — Large",
+              "aliases": ["430"],
+              "width": 430,
+              "height": 932,
+              "safe_zone": { "top": 59, "right": 16, "bottom": 34, "left": 16 }
+            }
+          ]
+        },
+        {
+          "id": "imagery",
+          "name": "Imagery",
+          "formats": [
+            {
+              "id": "web-hero-banner",
+              "name": "Hero Banner",
+              "keywords": ["header image"],
+              "width": 1920,
+              "height": 1080,
+              "aspect_ratio": "16:9",
+              "safe_zone": { "top": 120, "right": 360, "bottom": 120, "left": 360 },
+              "notes": "Hero images crop hard on mobile — keep the subject near the centre."
+            },
+            {
+              "id": "web-hero-wide",
+              "name": "Hero Banner — Wide",
+              "width": 1920,
+              "height": 720,
+              "safe_zone": { "top": 80, "right": 360, "bottom": 80, "left": 360 }
+            },
+            {
+              "id": "web-blog-featured",
+              "name": "Blog Featured Image",
+              "aliases": ["post thumbnail"],
+              "width": 1200,
+              "height": 675,
+              "aspect_ratio": "16:9",
+              "safe_zone": 60
+            },
+            {
+              "id": "web-og-image",
+              "name": "Open Graph Image",
+              "aliases": ["og image", "social preview", "share image"],
+              "keywords": ["meta", "link preview"],
+              "width": 1200,
+              "height": 630,
+              "aspect_ratio": "1.91:1",
+              "safe_zone": 70,
+              "max_file_size": "8 MB",
+              "notes": "One image covers Facebook, LinkedIn, WhatsApp and most link previews. Keep text large — it is often shown at a third of this size."
+            },
+            {
+              "id": "web-thumbnail-square",
+              "name": "Card Thumbnail — Square",
+              "width": 600,
+              "height": 600,
+              "safe_zone": 40
+            },
+            {
+              "id": "web-product-image",
+              "name": "Product Image",
+              "keywords": ["ecommerce", "shop"],
+              "width": 2000,
+              "height": 2000,
+              "safe_zone": 200,
+              "notes": "Large squares let the storefront zoom. Keep the product inside the safe zone so the thumbnail crop still works."
+            }
+          ]
+        },
+        {
+          "id": "identity",
+          "name": "Icons & Identity",
+          "formats": [
+            {
+              "id": "web-favicon",
+              "name": "Favicon",
+              "keywords": ["site icon", "tab icon"],
+              "width": 512,
+              "height": 512,
+              "safe_zone": 40,
+              "file_formats": ["PNG", "SVG", "ICO"],
+              "notes": "Supply one 512 px master; browsers render it as small as 16 px, so use a single bold shape."
+            },
+            {
+              "id": "web-apple-touch-icon",
+              "name": "Apple Touch Icon",
+              "width": 180,
+              "height": 180,
+              "safe_zone": 16,
+              "file_formats": ["PNG"],
+              "notes": "iOS rounds the corners itself — do not pre-round the artwork."
+            },
+            {
+              "id": "web-app-icon",
+              "name": "App Store Icon",
+              "keywords": ["ios", "android", "play store"],
+              "width": 1024,
+              "height": 1024,
+              "safe_zone": 100,
+              "file_formats": ["PNG"],
+              "notes": "No transparency and no rounded corners; the stores apply the mask."
+            },
+            {
+              "id": "web-logo-horizontal",
+              "name": "Header Logo",
+              "width": 400,
+              "height": 100,
+              "aspect_ratio": "4:1",
+              "safe_zone": 10,
+              "file_formats": ["SVG", "PNG"],
+              "notes": "Ship an SVG where possible; the pixel size is only a fallback."
+            }
+          ]
+        },
+        {
+          "id": "email",
+          "name": "Email",
+          "formats": [
+            {
+              "id": "web-email-width",
+              "name": "Email Body Width",
+              "keywords": ["newsletter"],
+              "width": 600,
+              "height": 1200,
+              "safe_zone": { "top": 20, "right": 20, "bottom": 20, "left": 20 },
+              "notes": "600 px is the safe body width across email clients. Export images at 2x for retina."
+            },
+            {
+              "id": "web-email-header",
+              "name": "Email Header Image",
+              "width": 1200,
+              "height": 400,
+              "safe_zone": 40,
+              "notes": "Twice the 600 px body width so it stays sharp on high-density screens."
+            },
+            {
+              "id": "web-email-signature",
+              "name": "Email Signature Banner",
+              "width": 600,
+              "height": 150,
+              "safe_zone": 15
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

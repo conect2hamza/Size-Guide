@@ -1,0 +1,488 @@
+{
+  "schema_version": 1,
+  "id": "digital-ads",
+  "section": "digital",
+  "name": "Digital Ads",
+  "order": 25,
+  "defaults": {
+    "unit": "px",
+    "dpi": 72,
+    "bleed": 0,
+    "file_formats": [
+      "JPG",
+      "PNG",
+      "GIF",
+      "HTML5"
+    ],
+    "source": {
+      "type": "common-practice",
+      "name": "IAB standard ad units and common network sizes",
+      "url": "",
+      "checked_date": "2026-08-29"
+    },
+    "last_updated": "2026-08"
+  },
+  "platforms": [
+    {
+      "id": "display-ads",
+      "name": "Display Ads",
+      "aliases": [
+        "google ads",
+        "banner ads",
+        "adsense",
+        "iab"
+      ],
+      "categories": [
+        {
+          "id": "desktop",
+          "name": "Desktop",
+          "formats": [
+            {
+              "id": "ad-300x250",
+              "name": "Medium Rectangle",
+              "aliases": [
+                "mpu",
+                "300x250"
+              ],
+              "keywords": [
+                "display ad",
+                "banner",
+                "desktop"
+              ],
+              "width": 300,
+              "height": 250,
+              "safe_zone": 12,
+              "max_file_size": "150 KB",
+              "notes": "The most widely supported display size."
+            },
+            {
+              "id": "ad-336x280",
+              "name": "Large Rectangle",
+              "aliases": [
+                "336x280"
+              ],
+              "keywords": [
+                "display ad",
+                "banner",
+                "desktop"
+              ],
+              "width": 336,
+              "height": 280,
+              "safe_zone": 14,
+              "max_file_size": "150 KB"
+            },
+            {
+              "id": "ad-728x90",
+              "name": "Leaderboard",
+              "aliases": [
+                "728x90"
+              ],
+              "keywords": [
+                "display ad",
+                "banner",
+                "desktop"
+              ],
+              "width": 728,
+              "height": 90,
+              "safe_zone": 4,
+              "max_file_size": "150 KB",
+              "notes": "The classic top-of-page banner."
+            },
+            {
+              "id": "ad-970x90",
+              "name": "Large Leaderboard",
+              "aliases": [
+                "970x90",
+                "super leaderboard"
+              ],
+              "keywords": [
+                "display ad",
+                "banner",
+                "desktop"
+              ],
+              "width": 970,
+              "height": 90,
+              "safe_zone": 4,
+              "max_file_size": "150 KB"
+            },
+            {
+              "id": "ad-970x250",
+              "name": "Billboard",
+              "aliases": [
+                "970x250"
+              ],
+              "keywords": [
+                "display ad",
+                "banner",
+                "desktop"
+              ],
+              "width": 970,
+              "height": 250,
+              "safe_zone": 12,
+              "max_file_size": "150 KB",
+              "notes": "A high-impact desktop unit."
+            },
+            {
+              "id": "ad-300x600",
+              "name": "Half Page",
+              "aliases": [
+                "300x600",
+                "large skyscraper"
+              ],
+              "keywords": [
+                "display ad",
+                "banner",
+                "desktop"
+              ],
+              "width": 300,
+              "height": 600,
+              "safe_zone": 15,
+              "max_file_size": "150 KB",
+              "notes": "One of the best performing display sizes."
+            },
+            {
+              "id": "ad-160x600",
+              "name": "Wide Skyscraper",
+              "aliases": [
+                "160x600"
+              ],
+              "keywords": [
+                "display ad",
+                "banner",
+                "desktop"
+              ],
+              "width": 160,
+              "height": 600,
+              "safe_zone": 8,
+              "max_file_size": "150 KB"
+            },
+            {
+              "id": "ad-120x600",
+              "name": "Skyscraper",
+              "aliases": [
+                "120x600"
+              ],
+              "keywords": [
+                "display ad",
+                "banner",
+                "desktop"
+              ],
+              "width": 120,
+              "height": 600,
+              "safe_zone": 6,
+              "max_file_size": "150 KB"
+            },
+            {
+              "id": "ad-300x1050",
+              "name": "Portrait",
+              "aliases": [
+                "300x1050"
+              ],
+              "keywords": [
+                "display ad",
+                "banner",
+                "desktop"
+              ],
+              "width": 300,
+              "height": 1050,
+              "safe_zone": 15,
+              "max_file_size": "150 KB"
+            },
+            {
+              "id": "ad-250x250",
+              "name": "Square",
+              "aliases": [
+                "250x250"
+              ],
+              "keywords": [
+                "display ad",
+                "banner",
+                "desktop"
+              ],
+              "width": 250,
+              "height": 250,
+              "safe_zone": 12,
+              "max_file_size": "150 KB"
+            },
+            {
+              "id": "ad-200x200",
+              "name": "Small Square",
+              "aliases": [
+                "200x200"
+              ],
+              "keywords": [
+                "display ad",
+                "banner",
+                "desktop"
+              ],
+              "width": 200,
+              "height": 200,
+              "safe_zone": 10,
+              "max_file_size": "150 KB"
+            },
+            {
+              "id": "ad-180x150",
+              "name": "Small Rectangle",
+              "aliases": [
+                "180x150"
+              ],
+              "keywords": [
+                "display ad",
+                "banner",
+                "desktop"
+              ],
+              "width": 180,
+              "height": 150,
+              "safe_zone": 8,
+              "max_file_size": "150 KB"
+            },
+            {
+              "id": "ad-468x60",
+              "name": "Banner",
+              "aliases": [
+                "468x60",
+                "full banner"
+              ],
+              "keywords": [
+                "display ad",
+                "banner",
+                "desktop"
+              ],
+              "width": 468,
+              "height": 60,
+              "safe_zone": 4,
+              "max_file_size": "150 KB",
+              "notes": "A legacy size, still accepted by many networks."
+            },
+            {
+              "id": "ad-234x60",
+              "name": "Half Banner",
+              "aliases": [
+                "234x60"
+              ],
+              "keywords": [
+                "display ad",
+                "banner",
+                "desktop"
+              ],
+              "width": 234,
+              "height": 60,
+              "safe_zone": 4,
+              "max_file_size": "150 KB"
+            },
+            {
+              "id": "ad-125x125",
+              "name": "Button",
+              "aliases": [
+                "125x125"
+              ],
+              "keywords": [
+                "display ad",
+                "banner",
+                "desktop"
+              ],
+              "width": 125,
+              "height": 125,
+              "safe_zone": 6,
+              "max_file_size": "150 KB"
+            }
+          ]
+        },
+        {
+          "id": "mobile",
+          "name": "Mobile",
+          "formats": [
+            {
+              "id": "ad-320x50",
+              "name": "Mobile Banner",
+              "aliases": [
+                "320x50"
+              ],
+              "keywords": [
+                "display ad",
+                "banner",
+                "mobile"
+              ],
+              "width": 320,
+              "height": 50,
+              "safe_zone": 4,
+              "max_file_size": "150 KB",
+              "notes": "The standard mobile banner."
+            },
+            {
+              "id": "ad-320x100",
+              "name": "Large Mobile Banner",
+              "aliases": [
+                "320x100"
+              ],
+              "keywords": [
+                "display ad",
+                "banner",
+                "mobile"
+              ],
+              "width": 320,
+              "height": 100,
+              "safe_zone": 5,
+              "max_file_size": "150 KB"
+            },
+            {
+              "id": "ad-300x50",
+              "name": "Mobile Leaderboard",
+              "aliases": [
+                "300x50"
+              ],
+              "keywords": [
+                "display ad",
+                "banner",
+                "mobile"
+              ],
+              "width": 300,
+              "height": 50,
+              "safe_zone": 4,
+              "max_file_size": "150 KB"
+            },
+            {
+              "id": "ad-320x480",
+              "name": "Mobile Interstitial — Portrait",
+              "aliases": [
+                "320x480"
+              ],
+              "keywords": [
+                "display ad",
+                "banner",
+                "mobile"
+              ],
+              "width": 320,
+              "height": 480,
+              "safe_zone": 16,
+              "max_file_size": "150 KB",
+              "notes": "Full-screen mobile unit."
+            },
+            {
+              "id": "ad-480x320",
+              "name": "Mobile Interstitial — Landscape",
+              "aliases": [
+                "480x320"
+              ],
+              "keywords": [
+                "display ad",
+                "banner",
+                "mobile"
+              ],
+              "width": 480,
+              "height": 320,
+              "safe_zone": 16,
+              "max_file_size": "150 KB"
+            },
+            {
+              "id": "ad-768x1024",
+              "name": "Tablet Interstitial",
+              "aliases": [
+                "768x1024"
+              ],
+              "keywords": [
+                "display ad",
+                "banner",
+                "mobile"
+              ],
+              "width": 768,
+              "height": 1024,
+              "safe_zone": 38,
+              "max_file_size": "150 KB"
+            },
+            {
+              "id": "ad-1080x1920",
+              "name": "Mobile Full Page",
+              "aliases": [
+                "1080x1920"
+              ],
+              "keywords": [
+                "display ad",
+                "banner",
+                "mobile"
+              ],
+              "width": 1080,
+              "height": 1920,
+              "safe_zone": 54,
+              "max_file_size": "150 KB",
+              "notes": "High-resolution full-screen mobile creative."
+            }
+          ]
+        },
+        {
+          "id": "responsive",
+          "name": "Responsive",
+          "formats": [
+            {
+              "id": "ad-1200x628",
+              "name": "Responsive Display — Landscape",
+              "aliases": [
+                "1.91:1 ad"
+              ],
+              "keywords": [
+                "display ad",
+                "banner",
+                "responsive"
+              ],
+              "width": 1200,
+              "height": 628,
+              "safe_zone": 31,
+              "max_file_size": "5 MB",
+              "notes": "Google responsive display ads use a 1.91:1 landscape image."
+            },
+            {
+              "id": "ad-1200x1200",
+              "name": "Responsive Display — Square",
+              "aliases": [
+                "1:1 ad"
+              ],
+              "keywords": [
+                "display ad",
+                "banner",
+                "responsive"
+              ],
+              "width": 1200,
+              "height": 1200,
+              "safe_zone": 60,
+              "max_file_size": "5 MB",
+              "notes": "The square image for a responsive display ad."
+            },
+            {
+              "id": "ad-1200x1200-2",
+              "name": "Responsive Display — Logo",
+              "aliases": [
+                "ad logo"
+              ],
+              "keywords": [
+                "display ad",
+                "banner",
+                "responsive"
+              ],
+              "width": 1200,
+              "height": 1200,
+              "safe_zone": 60,
+              "max_file_size": "5 MB",
+              "notes": "Square logo asset; a 4:1 landscape logo of 1200 x 300 is also accepted."
+            },
+            {
+              "id": "ad-1200x300",
+              "name": "Responsive Display — Logo Landscape",
+              "aliases": [
+                "4:1 logo"
+              ],
+              "keywords": [
+                "display ad",
+                "banner",
+                "responsive"
+              ],
+              "width": 1200,
+              "height": 300,
+              "safe_zone": 15,
+              "max_file_size": "5 MB"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

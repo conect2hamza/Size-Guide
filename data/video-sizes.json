@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "id": "video",
+  "section": "digital",
+  "name": "Video",
+  "order": 30,
+  "defaults": {
+    "unit": "px",
+    "dpi": 72,
+    "bleed": 0,
+    "file_formats": ["MP4", "MOV"],
+    "source": {
+      "type": "common-practice",
+      "name": "Standard broadcast and streaming resolutions",
+      "url": "",
+      "checked_date": "2026-08-29"
+    },
+    "last_updated": "2026-08"
+  },
+  "platforms": [
+    {
+      "id": "video-resolutions",
+      "name": "Resolutions",
+      "aliases": ["video size", "resolution"],
+      "categories": [
+        {
+          "id": "landscape",
+          "name": "Landscape",
+          "defaults": { "aspect_ratio": "16:9" },
+          "formats": [
+            {
+              "id": "video-8k",
+              "name": "8K UHD",
+              "aliases": ["4320p"],
+              "width": 7680,
+              "height": 4320,
+              "safe_zone": 216,
+              "notes": "Title safe area is the central 90% of the frame."
+            },
+            {
+              "id": "video-4k",
+              "name": "4K UHD",
+              "aliases": ["2160p", "uhd"],
+              "width": 3840,
+              "height": 2160,
+              "safe_zone": 108,
+              "notes": "The standard delivery resolution for high-end online video."
+            },
+            {
+              "id": "video-dci-4k",
+              "name": "DCI 4K",
+              "keywords": ["cinema"],
+              "width": 4096,
+              "height": 2160,
+              "aspect_ratio": "1.9:1",
+              "safe_zone": 110,
+              "notes": "The digital cinema standard — slightly wider than 4K UHD."
+            },
+            {
+              "id": "video-1080p",
+              "name": "1080p Full HD",
+              "aliases": ["full hd", "1920x1080"],
+              "width": 1920,
+              "height": 1080,
+              "safe_zone": 54,
+              "notes": "Still the most compatible delivery size. Title safe is the central 1728 x 972."
+            },
+            {
+              "id": "video-720p",
+              "name": "720p HD",
+              "aliases": ["hd"],
+              "width": 1280,
+              "height": 720,
+              "safe_zone": 36
+            },
+            {
+              "id": "video-ultrawide",
+              "name": "Cinematic 2.39:1",
+              "aliases": ["anamorphic", "scope"],
+              "width": 1920,
+              "height": 804,
+              "aspect_ratio": "2.39:1",
+              "safe_zone": 48,
+              "notes": "Deliver inside a 1920 x 1080 frame with letterbox bars, or crop to this size."
+            }
+          ]
+        },
+        {
+          "id": "vertical",
+          "name": "Vertical & Square",
+          "formats": [
+            {
+              "id": "video-vertical-1080",
+              "name": "Vertical 9:16",
+              "aliases": ["1080x1920", "story video", "shorts"],
+              "width": 1080,
+              "height": 1920,
+              "aspect_ratio": "9:16",
+              "safe_zone": { "top": 200, "right": 140, "bottom": 400, "left": 80 },
+              "notes": "One vertical master covers Reels, Shorts, TikTok and Stories — use the widest safe zone of the platforms you post to."
+            },
+            {
+              "id": "video-vertical-4k",
+              "name": "Vertical 4K",
+              "width": 2160,
+              "height": 3840,
+              "aspect_ratio": "9:16",
+              "safe_zone": { "top": 400, "right": 280, "bottom": 800, "left": 160 }
+            },
+            {
+              "id": "video-square",
+              "name": "Square Video",
+              "width": 1080,
+              "height": 1080,
+              "aspect_ratio": "1:1",
+              "safe_zone": 80,
+              "notes": "Square video performs well in feeds that autoplay muted."
+            },
+            {
+              "id": "video-portrait-4-5",
+              "name": "Portrait 4:5",
+              "width": 1080,
+              "height": 1350,
+              "aspect_ratio": "4:5",
+              "safe_zone": 80
+            }
+          ]
+        },
+        {
+          "id": "elements",
+          "name": "Video Elements",
+          "formats": [
+            {
+              "id": "video-thumbnail",
+              "name": "Video Thumbnail",
+              "width": 1280,
+              "height": 720,
+              "aspect_ratio": "16:9",
+              "safe_zone": { "top": 40, "right": 40, "bottom": 90, "left": 40 },
+              "file_formats": ["JPG", "PNG"],
+              "notes": "Keep the lower right clear — most players put the duration badge there."
+            },
+            {
+              "id": "video-lower-third",
+              "name": "Lower Third",
+              "keywords": ["caption bar", "name strap"],
+              "width": 1920,
+              "height": 1080,
+              "aspect_ratio": "16:9",
+              "safe_zone": { "top": 780, "right": 96, "bottom": 96, "left": 96 },
+              "file_formats": ["PNG", "MOV"],
+              "notes": "The safe zone marks the band where a lower third normally sits."
+            },
+            {
+              "id": "video-subtitle-safe",
+              "name": "Subtitle Safe Area",
+              "keywords": ["captions"],
+              "width": 1920,
+              "height": 1080,
+              "aspect_ratio": "16:9",
+              "safe_zone": { "top": 54, "right": 96, "bottom": 150, "left": 96 },
+              "notes": "Burned-in captions should sit above the bottom safe line so player controls do not cover them."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+/**
+ * Size Guide — infographic styles.
+ *
+ * The SVG carries its own geometry; this file only controls how the diagram
+ * sits inside the page and how the toggle controls look.
+ */
+
+.sg-infographic {
+	background: var( --sg-surface-alt );
+	border: 1px solid var( --sg-border );
+	border-radius: var( --sg-radius );
+	margin: 0;
+	padding: 16px;
+}
+
+.sg-infographic__canvas {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	min-height: 220px;
+}
+
+.sg-infographic__svg {
+	display: block;
+	font-family: inherit;
+	height: auto;
+	max-height: 460px;
+	max-width: 100%;
+	width: 100%;
+}
+
+.sg-infographic__caption {
+	color: var( --sg-muted );
+	font-size: 0.85rem;
+	font-variant-numeric: tabular-nums;
+	margin-top: 12px;
+	text-align: center;
+}
+
+.sg-infographic__caption + .sg-legend {
+	border-top: 1px solid var( --sg-border );
+	margin-top: 10px;
+	padding-top: 10px;
+}
+
+/* Layer toggles
+   -------------------------------------------------------------- */
+
+.sg-toggles {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px 14px;
+	margin-top: 12px;
+}
+
+.sg-toggle {
+	align-items: center;
+	color: var( --sg-muted );
+	cursor: pointer;
+	display: inline-flex;
+	font-size: 0.85rem;
+	gap: 6px;
+	line-height: 1.2;
+	min-height: 28px;
+}
+
+.sg-toggle:hover {
+	color: var( --sg-text );
+}
+
+.sg-toggle.is-disabled {
+	cursor: not-allowed;
+	opacity: 0.45;
+}
+
+.sg-toggle__input {
+	accent-color: var( --sg-accent );
+	height: 16px;
+	margin: 0;
+	width: 16px;
+}
+
+.sg-toggle__input:focus-visible {
+	outline: 2px solid var( --sg-accent );
+	outline-offset: 2px;
+}
+
+/* A small key so the colours are not the only signal
+   -------------------------------------------------------------- */
+
+.sg-legend {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px 14px;
+	justify-content: center;
+	list-style: none;
+	margin: 10px 0 0;
+	padding: 0;
+}
+
+.sg-legend li {
+	align-items: center;
+	color: var( --sg-muted );
+	display: flex;
+	font-size: 0.78rem;
+	gap: 6px;
+	white-space: nowrap;
+}
+
+.sg-legend span {
+	border-radius: 2px;
+	display: inline-block;
+	height: 3px;
+	width: 18px;
+}
+
+.sg-legend .sg-legend--bleed {
+	background: #e11d48;
+}
+
+.sg-legend .sg-legend--trim {
+	background: #111827;
+}
+
+.sg-legend .sg-legend--margin {
+	background: #f59e0b;
+}
+
+.sg-legend .sg-legend--safe {
+	background: #16a34a;
+}
+
+@media print {
+
+	.sg-toggles,
+	.sg-sections,
+	.sg-sidebar,
+	.sg-search,
+	.sg-copy,
+	.sg-downloads {
+		display: none !important;
+	}
+
+	.sg-infographic {
+		border: 0;
+		padding: 0;
+	}
+}
