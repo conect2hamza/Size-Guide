@@ -81,13 +81,14 @@ size-guide/
 │   └── print-sizes.json
 ├── includes/
 │   ├── class-size-guide.php         Bootstrap, asset registration, i18n strings
+│   ├── class-appearance.php         Design tokens, presets, generated stylesheet
 │   ├── class-data-loader.php        Load, merge, normalise, index, search, convert
 │   ├── class-shortcode.php          [size_guide]
 │   ├── class-rest-api.php           Read-only REST endpoints
 │   ├── class-admin.php              Menu, settings, import/export
 │   └── class-template-generator.php Server-side SVG templates
 ├── templates/                  Frontend markup (themes can override via size-guide/app.php)
-├── admin/                      Admin screens
+├── admin/                      Admin screens (dashboard, platforms, sizes, appearance, data, settings)
 └── assets/
     ├── css/  frontend.css, infographic.css, admin.css
     └── js/   converter.js, search.js, infographic.js, template-generator.js, frontend.js
@@ -102,6 +103,7 @@ size-guide/
 | `infographic.js` | Builds the scaled SVG diagram: bleed, trim, margin, safe zone, grid, measurements. |
 | `template-generator.js` | SVG source, PNG rasterisation via canvas, print/PDF window, Blob downloads. |
 | `frontend.js` | State, routing, navigation, platform grid and detail view. |
+| `admin-appearance.js` | Drives the Appearance screen's live preview from the same tokens. |
 
 ---
 
@@ -189,16 +191,44 @@ add_filter( 'size_guide_data_files', function ( $files ) {
 
 ### Appearance
 
-*Size Guide → Settings → Appearance* covers the accent colour, the colour scheme (light, dark, or
-follow the visitor's system), rounded or square corners, and comfortable or compact density. A single
-page can override the scheme with `[size_guide scheme="dark"]`.
+*Size Guide → Appearance* exposes every design token the frontend uses — 35 settings in all —
+alongside a live preview that is the real frontend running on your dataset:
 
-The infographic reads its guide colours from CSS custom properties (`--sg-guide-bleed`, `--sg-guide-safe`,
-`--sg-guide-measure` and friends), so a theme can restyle the diagram without touching JavaScript. The
-artboard stays white in every scheme because it represents the design surface rather than the page, and
-downloaded templates always carry the standard guide colours.
+| Group | Controls |
+| --- | --- |
+| Scheme | Light, dark, or follow the visitor's system; optional transparent background |
+| Light palette | Background, card surface, sunken surface, text, secondary text, borders, accent, text on accent |
+| Dark palette | The same eight, tuned separately |
+| Diagram | Artboard, trim, bleed, margin, safe zone, grid |
+| Typography | Typeface (six stacks or your own), base size, heading weight |
+| Shape & space | Corner radius, border width, card width, sidebar width, maximum width, density, shadow, motion |
 
-### Add search shorthand
+Five presets — Default, Minimal, Studio, Editorial, Vivid — fill everything as a starting point.
+A single page can still override the scheme with `[size_guide scheme="dark"]`.
+
+Two deliberate constraints:
+
+- **Diagram colours are one set, not one per scheme.** The artboard inside a diagram is always the
+  design surface, so a second set tuned for a dark page would be drawn on a light background and
+  disappear. Measurements sit outside the artboard, so they bind to the text and secondary-text
+  tokens and can never end up unreadable.
+- **Downloaded templates keep the standard guide colours** whatever the site looks like — a template
+  opened in Illustrator should not carry your brand's accent as its trim line.
+
+Everything is plain CSS custom properties on `.sg-app`, so a theme can override any of them:
+
+```css
+.sg-app {
+	--sg-accent: #ff5722;
+	--sg-radius: 0;
+	--sg-font: "Inter", sans-serif;
+}
+```
+
+The full token list lives in `assets/css/frontend.css`; `SizeGuide\Appearance` owns the defaults,
+validation and the generated stylesheet.
+
+### Add search shorthand### Add search shorthand
 
 ```php
 add_filter( 'size_guide_search_abbreviations', function ( $map ) {

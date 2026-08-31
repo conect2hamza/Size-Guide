@@ -34,7 +34,7 @@ visual diagram rather than two numbers.
 * Copy dimensions to the clipboard in three notations
 * Download clean and guide templates as SVG or PNG, or print to PDF
 * Responsive, keyboard accessible, and readable without JavaScript
-* Appearance settings: accent colour, light/dark/auto colour scheme, corner style and density
+* A full appearance editor: every colour, typeface, radius and spacing value, with a live preview and five presets
 
 **No external services.** Everything is generated from local data in the browser. No API key, no account,
 no tracking, no personal data.
@@ -64,6 +64,13 @@ Paper sizes follow ISO 216 and the US/ANSI standards and are exact. Social, web,
 marked "common practice": they reflect widely used specifications, but platforms change without notice
 and the bundled values have not been re-verified against each platform's live documentation. Every record
 shows its source type and last-updated date, and you can correct any of them through the import screen.
+
+= How much can I restyle it? =
+
+All of it. Size Guide → Appearance exposes 35 design tokens — separate light and dark palettes,
+diagram colours, typeface, base size, heading weight, radius, border width, card and sidebar widths,
+density, shadow and motion — with a live preview of the real front-end. Five presets give you a
+starting point, and a theme can override any token in CSS.
 
 = Does it slow down my site? =
 

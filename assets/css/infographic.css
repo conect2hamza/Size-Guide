@@ -1,23 +1,24 @@
 /**
  * Size Guide — infographic styles.
  *
- * The SVG carries its own geometry; this file only controls how the diagram
- * sits inside the page and how the toggle controls look.
+ * The SVG carries its own geometry and reads its colours from the diagram
+ * tokens; this file only places the diagram on the page and styles the
+ * controls around it.
  */
 
 .sg-infographic {
 	background: var( --sg-surface-alt );
-	border: 1px solid var( --sg-border );
+	border: var( --sg-border-width ) solid var( --sg-border );
 	border-radius: var( --sg-radius );
 	margin: 0;
-	padding: 16px;
+	padding: calc( var( --sg-pad ) * 1.2 );
 }
 
 .sg-infographic__canvas {
 	align-items: center;
 	display: flex;
 	justify-content: center;
-	min-height: 220px;
+	min-height: 230px;
 }
 
 .sg-infographic__svg {
@@ -31,16 +32,10 @@
 
 .sg-infographic__caption {
 	color: var( --sg-muted );
-	font-size: 0.85rem;
+	font-size: 0.84em;
 	font-variant-numeric: tabular-nums;
 	margin-top: 12px;
 	text-align: center;
-}
-
-.sg-infographic__caption + .sg-legend {
-	border-top: 1px solid var( --sg-border );
-	margin-top: 10px;
-	padding-top: 10px;
 }
 
 /* Layer toggles
@@ -49,23 +44,36 @@
 .sg-toggles {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 8px 14px;
+	gap: 7px;
 	margin-top: 12px;
 }
 
 .sg-toggle {
 	align-items: center;
+	background: var( --sg-surface );
+	border: var( --sg-border-width ) solid var( --sg-border );
+	border-radius: var( --sg-radius-pill );
 	color: var( --sg-muted );
 	cursor: pointer;
 	display: inline-flex;
-	font-size: 0.85rem;
-	gap: 6px;
+	font-size: 0.8em;
+	gap: 7px;
 	line-height: 1.2;
-	min-height: 28px;
+	padding: 6px 12px 6px 10px;
+	transition: border-color var( --sg-motion ) ease, color var( --sg-motion ) ease;
+	-webkit-user-select: none;
+	user-select: none;
 }
 
 .sg-toggle:hover {
+	border-color: var( --sg-accent-ring );
 	color: var( --sg-text );
+}
+
+.sg-toggle:has( .sg-toggle__input:checked ) {
+	background: var( --sg-accent-soft );
+	border-color: var( --sg-accent-ring );
+	color: var( --sg-accent );
 }
 
 .sg-toggle.is-disabled {
@@ -73,41 +81,47 @@
 	opacity: 0.45;
 }
 
+.sg-toggle.is-disabled:hover {
+	border-color: var( --sg-border );
+	color: var( --sg-muted );
+}
+
 .sg-toggle__input {
 	accent-color: var( --sg-accent );
-	height: 16px;
+	height: 14px;
 	margin: 0;
-	width: 16px;
+	width: 14px;
 }
 
-.sg-toggle__input:focus-visible {
-	outline: 2px solid var( --sg-accent );
-	outline-offset: 2px;
-}
-
-/* A small key so the colours are not the only signal
+/* A written key, so colour is never the only signal
    -------------------------------------------------------------- */
 
 .sg-legend {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 6px 14px;
+	gap: 6px 16px;
 	justify-content: center;
 	list-style: none;
 	margin: 10px 0 0;
 	padding: 0;
 }
 
+.sg-infographic__caption + .sg-legend {
+	border-top: var( --sg-border-width ) solid var( --sg-border );
+	margin-top: 11px;
+	padding-top: 11px;
+}
+
 .sg-legend li {
 	align-items: center;
 	color: var( --sg-muted );
 	display: flex;
-	font-size: 0.78rem;
+	font-size: 0.76em;
 	gap: 6px;
 	white-space: nowrap;
 }
 
-.sg-legend span {
+.sg-legend li span:first-child {
 	border-radius: 2px;
 	display: inline-block;
 	height: 3px;
@@ -115,19 +129,19 @@
 }
 
 .sg-legend .sg-legend--bleed {
-	background: #e11d48;
+	background: var( --sg-guide-bleed );
 }
 
 .sg-legend .sg-legend--trim {
-	background: #111827;
+	background: var( --sg-guide-trim );
 }
 
 .sg-legend .sg-legend--margin {
-	background: #f59e0b;
+	background: var( --sg-guide-margin );
 }
 
 .sg-legend .sg-legend--safe {
-	background: #16a34a;
+	background: var( --sg-guide-safe );
 }
 
 @media print {

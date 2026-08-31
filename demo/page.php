@@ -621,13 +621,14 @@ $sg_body = <<<'HTMLBODY'
 		<div class="note">
 			<h2>Appearance</h2>
 			<p>
-				Settings cover the accent colour, a light / dark / follow-the-system colour
-				scheme, rounded or square corners, and comfortable or compact density. A single
-				page can override the scheme with <code>scheme="dark"</code>.
+				Every visual decision is a design token: 35 of them, edited in the admin against a
+				live preview of the real front-end. Separate light and dark palettes, diagram
+				colours, typeface, base size, heading weight, radius, border width, card and
+				sidebar widths, density, shadow and motion.
 			</p>
 			<p>
-				The diagram reads its guide colours from CSS, so it follows the scheme too &mdash;
-				except the artboard, which stays white because it stands for the design surface.
+				Diagram colours are one set rather than one per scheme, because the artboard is
+				always the design surface &mdash; a dark-tuned trim line would vanish on it.
 				Downloaded templates always keep the standard guide colours.
 			</p>
 		</div>

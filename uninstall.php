@@ -12,6 +12,7 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 $size_guide_options = array(
 	'size_guide_settings',
 	'size_guide_custom_dataset',
+	'size_guide_appearance',
 );
 
 foreach ( $size_guide_options as $size_guide_option ) {

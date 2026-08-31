@@ -100,3 +100,201 @@
 .sg-admin .widefat code {
 	font-size: 11px;
 }
+
+/* Appearance screen
+   -------------------------------------------------------------- */
+
+.sg-ap__layout {
+	align-items: start;
+	display: grid;
+	gap: 24px;
+	grid-template-columns: minmax( 320px, 420px ) minmax( 0, 1fr );
+	margin-top: 20px;
+}
+
+.sg-ap__panel {
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	margin-bottom: 16px;
+	padding: 16px 18px;
+}
+
+.sg-ap__panel h2 {
+	font-size: 14px;
+	margin: 0 0 6px;
+}
+
+.sg-ap__panel .description {
+	margin-top: 0;
+}
+
+.sg-ap__presets {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	margin-top: 10px;
+}
+
+.sg-ap__segmented {
+	background: #f0f0f1;
+	border-radius: 6px;
+	display: inline-flex;
+	gap: 2px;
+	margin: 8px 0;
+	padding: 3px;
+}
+
+.sg-ap__segmented label {
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 13px;
+	padding: 5px 14px;
+}
+
+.sg-ap__segmented input {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.sg-ap__segmented label:has( input:checked ) {
+	background: #fff;
+	box-shadow: 0 1px 2px rgba( 0, 0, 0, 0.12 );
+	font-weight: 600;
+}
+
+.sg-ap__segmented label:has( input:focus-visible ) {
+	outline: 2px solid #2271b1;
+	outline-offset: 1px;
+}
+
+.sg-ap__colors {
+	display: grid;
+	gap: 8px;
+	grid-template-columns: repeat( auto-fit, minmax( 160px, 1fr ) );
+	margin-top: 10px;
+}
+
+.sg-ap__color {
+	align-items: center;
+	display: flex;
+	gap: 9px;
+}
+
+.sg-ap__color input[type="color"] {
+	background: none;
+	block-size: 30px;
+	border: 1px solid #dcdcde;
+	border-radius: 5px;
+	cursor: pointer;
+	flex: none;
+	inline-size: 34px;
+	padding: 2px;
+}
+
+.sg-ap__color label {
+	display: flex;
+	flex-direction: column;
+	line-height: 1.25;
+	min-width: 0;
+}
+
+.sg-ap__color-name {
+	font-size: 12px;
+}
+
+.sg-ap__color code {
+	background: none;
+	color: #646970;
+	font-size: 10px;
+	padding: 0;
+	text-transform: uppercase;
+}
+
+.sg-ap__label {
+	display: block;
+	font-size: 12px;
+	font-weight: 600;
+	margin-bottom: 4px;
+}
+
+.sg-ap__label output {
+	color: #646970;
+	float: right;
+	font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+	font-weight: 400;
+}
+
+.sg-ap__range input[type="range"] {
+	accent-color: #2271b1;
+	width: 100%;
+}
+
+.sg-ap__check label {
+	display: block;
+	margin-bottom: 2px;
+}
+
+.sg-ap__preview-wrap {
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	overflow: hidden;
+	position: sticky;
+	top: 46px;
+}
+
+.sg-ap__preview-bar {
+	align-items: center;
+	background: #f6f7f7;
+	border-bottom: 1px solid #dcdcde;
+	display: flex;
+	font-size: 11px;
+	justify-content: space-between;
+	letter-spacing: 0.06em;
+	padding: 8px 12px;
+	text-transform: uppercase;
+}
+
+.sg-ap__live {
+	align-items: center;
+	display: inline-flex;
+	font-weight: 600;
+	gap: 7px;
+}
+
+.sg-ap__live::before {
+	background: #16a34a;
+	border-radius: 50%;
+	content: "";
+	height: 7px;
+	width: 7px;
+}
+
+.sg-ap__hint {
+	color: #646970;
+}
+
+/* The preview hosts the real front-end, so give it room and keep admin
+   typography from leaking into it. */
+.sg-ap__preview {
+	background: #fff;
+	max-height: calc( 100vh - 140px );
+	overflow: auto;
+	padding: 20px;
+}
+
+.sg-ap__preview .sg-app {
+	font-size: var( --sg-font-size );
+}
+
+@media ( max-width: 1200px ) {
+
+	.sg-ap__layout {
+		grid-template-columns: minmax( 0, 1fr );
+	}
+
+	.sg-ap__preview-wrap {
+		position: static;
+	}
+}

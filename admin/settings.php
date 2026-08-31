@@ -102,110 +102,16 @@ $sg_option   = SizeGuide\Size_Guide::SETTINGS_OPTION;
 			</tbody>
 		</table>
 
-		<h2><?php esc_html_e( 'Appearance', 'size-guide' ); ?></h2>
 		<p class="description">
-			<?php esc_html_e( 'How the guide looks on the front of the site. Downloaded templates always keep the standard guide colours, whatever you choose here.', 'size-guide' ); ?>
+			<?php
+			printf(
+				/* translators: %s: link to the appearance screen */
+				esc_html__( 'Colours, typography, spacing and shape live on the %s screen.', 'size-guide' ),
+				'<a href="' . esc_url( admin_url( 'admin.php?page=size-guide-appearance' ) ) . '">' .
+					esc_html__( 'Appearance', 'size-guide' ) . '</a>'
+			);
+			?>
 		</p>
-
-		<table class="form-table" role="presentation">
-			<tbody>
-				<tr>
-					<th scope="row">
-						<label for="sg_accent_color"><?php esc_html_e( 'Accent colour', 'size-guide' ); ?></label>
-					</th>
-					<td>
-						<input type="color" name="<?php echo esc_attr( $sg_option ); ?>[accent_color]" id="sg_accent_color"
-							value="<?php echo esc_attr( $sg_settings['accent_color'] ); ?>">
-						<p class="description"><?php esc_html_e( 'Used for active tabs, buttons, selected platforms and focus rings.', 'size-guide' ); ?></p>
-					</td>
-				</tr>
-
-				<tr>
-					<th scope="row"><?php esc_html_e( 'Colour scheme', 'size-guide' ); ?></th>
-					<td>
-						<fieldset>
-							<legend class="screen-reader-text"><?php esc_html_e( 'Colour scheme', 'size-guide' ); ?></legend>
-							<?php
-							$sg_schemes = array(
-								'light' => __( 'Light', 'size-guide' ),
-								'dark'  => __( 'Dark', 'size-guide' ),
-								'auto'  => __( 'Match the visitor&#8217;s system setting', 'size-guide' ),
-							);
-
-							foreach ( $sg_schemes as $sg_key => $sg_label ) :
-								?>
-								<label style="display:block;margin-bottom:4px">
-									<input type="radio" name="<?php echo esc_attr( $sg_option ); ?>[color_scheme]"
-										value="<?php echo esc_attr( $sg_key ); ?>" <?php checked( $sg_settings['color_scheme'], $sg_key ); ?>>
-									<?php echo esc_html( $sg_label ); ?>
-								</label>
-							<?php endforeach; ?>
-						</fieldset>
-						<p class="description">
-							<?php esc_html_e( 'The artboard inside each diagram stays white in every scheme — it stands for the design surface, not the page.', 'size-guide' ); ?>
-						</p>
-					</td>
-				</tr>
-
-				<tr>
-					<th scope="row"><?php esc_html_e( 'Corners', 'size-guide' ); ?></th>
-					<td>
-						<fieldset>
-							<legend class="screen-reader-text"><?php esc_html_e( 'Corners', 'size-guide' ); ?></legend>
-							<?php
-							$sg_corners = array(
-								'rounded' => __( 'Rounded', 'size-guide' ),
-								'square'  => __( 'Square', 'size-guide' ),
-							);
-
-							foreach ( $sg_corners as $sg_key => $sg_label ) :
-								?>
-								<label style="margin-right:16px">
-									<input type="radio" name="<?php echo esc_attr( $sg_option ); ?>[corner_style]"
-										value="<?php echo esc_attr( $sg_key ); ?>" <?php checked( $sg_settings['corner_style'], $sg_key ); ?>>
-									<?php echo esc_html( $sg_label ); ?>
-								</label>
-							<?php endforeach; ?>
-						</fieldset>
-						<p class="description"><?php esc_html_e( 'Square corners suit editorial and technical themes.', 'size-guide' ); ?></p>
-					</td>
-				</tr>
-
-				<tr>
-					<th scope="row"><?php esc_html_e( 'Density', 'size-guide' ); ?></th>
-					<td>
-						<fieldset>
-							<legend class="screen-reader-text"><?php esc_html_e( 'Density', 'size-guide' ); ?></legend>
-							<?php
-							$sg_densities = array(
-								'comfortable' => __( 'Comfortable', 'size-guide' ),
-								'compact'     => __( 'Compact', 'size-guide' ),
-							);
-
-							foreach ( $sg_densities as $sg_key => $sg_label ) :
-								?>
-								<label style="margin-right:16px">
-									<input type="radio" name="<?php echo esc_attr( $sg_option ); ?>[density]"
-										value="<?php echo esc_attr( $sg_key ); ?>" <?php checked( $sg_settings['density'], $sg_key ); ?>>
-									<?php echo esc_html( $sg_label ); ?>
-								</label>
-							<?php endforeach; ?>
-						</fieldset>
-						<p class="description"><?php esc_html_e( 'Compact tightens spacing and fits more size cards per row.', 'size-guide' ); ?></p>
-					</td>
-				</tr>
-
-				<tr>
-					<th scope="row"><?php esc_html_e( 'Per page', 'size-guide' ); ?></th>
-					<td>
-						<p class="description">
-							<?php esc_html_e( 'One page can override the scheme:', 'size-guide' ); ?>
-							<code>[size_guide scheme="dark"]</code>
-						</p>
-					</td>
-				</tr>
-			</tbody>
-		</table>
 
 		<?php submit_button(); ?>
 	</form>

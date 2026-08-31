@@ -24,6 +24,7 @@ define( 'SIZE_GUIDE_URL', plugin_dir_url( __FILE__ ) );
 define( 'SIZE_GUIDE_BASENAME', plugin_basename( __FILE__ ) );
 
 require_once SIZE_GUIDE_PATH . 'includes/class-data-loader.php';
+require_once SIZE_GUIDE_PATH . 'includes/class-appearance.php';
 require_once SIZE_GUIDE_PATH . 'includes/class-template-generator.php';
 require_once SIZE_GUIDE_PATH . 'includes/class-shortcode.php';
 require_once SIZE_GUIDE_PATH . 'includes/class-rest-api.php';

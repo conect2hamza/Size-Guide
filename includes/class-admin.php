@@ -72,6 +72,7 @@ class Admin {
 			self::MENU_SLUG               => array( __( 'Dashboard', 'size-guide' ), 'render_dashboard' ),
 			self::MENU_SLUG . '-platforms' => array( __( 'Platforms', 'size-guide' ), 'render_platforms' ),
 			self::MENU_SLUG . '-sizes'    => array( __( 'Sizes', 'size-guide' ), 'render_sizes' ),
+			self::MENU_SLUG . '-appearance' => array( __( 'Appearance', 'size-guide' ), 'render_appearance' ),
 			self::MENU_SLUG . '-data'     => array( __( 'Import / Export', 'size-guide' ), 'render_data' ),
 			self::MENU_SLUG . '-settings' => array( __( 'Settings', 'size-guide' ), 'render_settings' ),
 		);
@@ -104,6 +105,18 @@ class Admin {
 			array(),
 			SIZE_GUIDE_VERSION
 		);
+
+		if ( false !== strpos( (string) $hook, self::MENU_SLUG . '-appearance' ) ) {
+			size_guide()->enqueue_frontend();
+
+			wp_enqueue_script(
+				'size-guide-admin-appearance',
+				SIZE_GUIDE_URL . 'assets/js/admin-appearance.js',
+				array(),
+				SIZE_GUIDE_VERSION,
+				true
+			);
+		}
 	}
 
 	/**
@@ -137,6 +150,16 @@ class Admin {
 				'default'           => Size_Guide::default_settings(),
 			)
 		);
+
+		register_setting(
+			'size_guide_appearance_group',
+			Appearance::OPTION,
+			array(
+				'type'              => 'array',
+				'sanitize_callback' => array( Appearance::class, 'sanitize' ),
+				'default'           => Appearance::defaults(),
+			)
+		);
 	}
 
 	/**
@@ -166,24 +189,6 @@ class Admin {
 		$clean['show_sources']    = empty( $input['show_sources'] ) ? 0 : 1;
 		$clean['enable_download'] = empty( $input['enable_download'] ) ? 0 : 1;
 		$clean['load_via_rest']   = empty( $input['load_via_rest'] ) ? 0 : 1;
-
-		$color                 = isset( $input['accent_color'] ) ? sanitize_hex_color( $input['accent_color'] ) : '';
-		$clean['accent_color'] = $color ? $color : $defaults['accent_color'];
-
-		$schemes               = array( 'light', 'dark', 'auto' );
-		$clean['color_scheme'] = in_array( $input['color_scheme'] ?? '', $schemes, true )
-			? $input['color_scheme']
-			: $defaults['color_scheme'];
-
-		$corners               = array( 'rounded', 'square' );
-		$clean['corner_style'] = in_array( $input['corner_style'] ?? '', $corners, true )
-			? $input['corner_style']
-			: $defaults['corner_style'];
-
-		$densities        = array( 'comfortable', 'compact' );
-		$clean['density'] = in_array( $input['density'] ?? '', $densities, true )
-			? $input['density']
-			: $defaults['density'];
 
 		Data_Loader::flush_cache();
 
@@ -470,6 +475,13 @@ class Admin {
 	 */
 	public function render_sizes() {
 		$this->render_page( 'sizes.php' );
+	}
+
+	/**
+	 * Appearance screen.
+	 */
+	public function render_appearance() {
+		$this->render_page( 'appearance.php' );
 	}
 
 	/**
